@@ -1,0 +1,36 @@
+# Registry index checks.
+#
+# validate (gating): the index must parse and satisfy every schema_version 1
+# rule — panels in the wild fetch this file raw off main, so a broken merge
+# is a broken Marketplace everywhere until reverted. The validator is
+# dependency-free; there is nothing to install.
+#
+# verify-sources (gating on PRs): every listed source must resolve to a
+# downloadable zip, and pinned sha256 digests must match. A listing whose
+# download is broken or tampered must not merge.
+name: Validate registry
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: index.json schema + rules
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate index.json
+        run: python3 scripts/validate.py
+
+  verify-sources:
+    name: sources downloadable + sha256 match
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Resolve, download, and hash every listed source
+        run: python3 scripts/verify_sources.py
