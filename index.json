@@ -1,5 +1,24 @@
 {
   "schema_version": 1,
   "updated": "2026-07-03",
-  "extensions": []
+  "extensions": [
+    {
+      "slug": "serverkit-gui",
+      "display_name": "ServerKit Agent GUI (Beta)",
+      "description": "Beta: agent-powered desktop view for managed servers. Streams live Windows/Linux screenshots when available, with a synthetic desktop fallback for headless hosts.",
+      "version": "0.1.0-beta.1",
+      "category": "monitoring",
+      "author": "Juan Denis",
+      "first_party": true,
+      "permissions": [
+        "agent.command:gui:screenshot",
+        "agent.command:gui:capabilities"
+      ],
+      "min_panel_version": "1.7.11",
+      "max_panel_version": null,
+      "source": "https://github.com/jhd3197/serverkit-gui/releases/download/v0.1.0-beta.1/serverkit-gui-0.1.0-beta.1.zip",
+      "sha256": "432d31396075f8e72921d1c19564e1a819d7fdd674b8d73349e0c13feb51a5f5",
+      "homepage": "https://github.com/jhd3197/serverkit-gui"
+    }
+  ]
 }
