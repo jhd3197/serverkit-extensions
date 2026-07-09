@@ -17,6 +17,15 @@
       undeclared permissions are rejected
 - [ ] `min_panel_version` reflects the oldest panel actually tested
 - [ ] Real OSS license (`license` in the manifest + a LICENSE file in the repo)
-- [ ] Name/description are brand-neutral
+- [ ] Name/description are brand-neutral, plain-ASCII punctuation (no em/en dashes)
+- [ ] `repo` set to the extension's source repository (https URL)
+- [ ] Logo committed at `assets/<slug>/logo.svg` (or `.png`, ≤ 200 KB) and the
+      `logo` field points at it — or an https logo URL that CI can HEAD-check
+
+<!--
+Not applicable to community entries: `bundled: true` entries are the panel's
+builtin extensions, GENERATED from the ServerKit repo via
+`node scripts/export-registry-entries.mjs` — never hand-edited here.
+-->
 
 > ServerKit is free/OSS: there are no paid extensions, quotas, or billing — ever.

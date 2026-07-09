@@ -5,7 +5,10 @@
   "type": "object",
   "required": ["schema_version", "updated", "extensions"],
   "properties": {
-    "schema_version": { "const": 1 },
+    "schema_version": {
+      "enum": [1, 2],
+      "description": "1 = original; 2 adds logo/repo/bundled (all additive, v1 entries stay valid)."
+    },
     "updated": {
       "type": "string",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
@@ -23,7 +26,19 @@
     },
     "extension": {
       "type": "object",
-      "required": ["slug", "display_name", "version", "source"],
+      "required": ["slug", "display_name", "version"],
+      "allOf": [
+        {
+          "description": "Registry-installable entries need a source; bundled catalog listings do not.",
+          "if": {
+            "not": {
+              "properties": { "bundled": { "const": true } },
+              "required": ["bundled"]
+            }
+          },
+          "then": { "required": ["source"] }
+        }
+      ],
       "properties": {
         "slug": {
           "type": "string",
@@ -41,6 +56,10 @@
           "type": "boolean",
           "description": "true only for ServerKit-authored entries."
         },
+        "bundled": {
+          "type": "boolean",
+          "description": "true for builtin extensions shipped inside the panel. Catalog listings only (not installed from the registry), so source/sha256 are optional. Generated from the panel repo via scripts/export-registry-entries.mjs."
+        },
         "permissions": {
           "type": "array",
           "items": { "type": "string", "minLength": 1 }
@@ -54,7 +73,7 @@
         "source": {
           "type": "string",
           "pattern": "^https://",
-          "description": "Repo URL (latest release), release-tag URL, or direct .zip URL."
+          "description": "Repo URL (latest release), release-tag URL, or direct .zip URL. Optional for bundled entries."
         },
         "sha256": {
           "anyOf": [
@@ -62,6 +81,16 @@
             { "type": "null" }
           ],
           "description": "sha256 of the exact zip `source` resolves to. Enforced when present."
+        },
+        "repo": {
+          "type": "string",
+          "pattern": "^https://",
+          "description": "https URL of the extension's source repository."
+        },
+        "logo": {
+          "type": "string",
+          "description": "Extension logo. Either an https:// URL or a repo-relative path 'assets/<slug>/<file>'. Repo-relative paths are rewritten to absolute URLs by the serverkit.ai /ext endpoint.",
+          "pattern": "^(https://.+|assets/[a-z0-9]+(-[a-z0-9]+)*/[A-Za-z0-9._-]+)$"
         },
         "homepage": {
           "anyOf": [{ "type": "string", "pattern": "^https?://" }, { "type": "null" }]

@@ -28,11 +28,28 @@ ServerKit is free/OSS: there are **no paid extensions, quotas, or billing — ev
 2. **Cut a release.** Tag a version and attach the plugin `.zip` as a release
    asset (the installer prefers a `.zip` asset over the source zipball). Record
    the asset's digest: `sha256sum my-extension-0.1.0.zip`.
-3. **Open a PR** adding (or bumping) your entry in `index.json`. Bumping
+3. **Add artwork (optional but recommended).** Commit a logo at
+   `assets/<slug>/logo.svg` (or `.png`, ≤ 200 KB) in the same PR, and set the
+   entry's `logo` field to that repo-relative path
+   (`assets/<slug>/logo.svg`) — the panel and the serverkit.ai `/ext` endpoint
+   resolve it to an absolute URL, so one relative path works everywhere. An
+   external `https://` logo URL is also accepted (CI HEAD-checks it: reachable,
+   `image/*`, under the size cap).
+4. **Open a PR** adding (or bumping) your entry in `index.json`. Bumping
    `version` is what surfaces the "Update available" badge on installed panels.
    The full field reference lives in
    [`docs/EXTENSIONS_REGISTRY.md`](https://github.com/jhd3197/ServerKit/blob/main/docs/EXTENSIONS_REGISTRY.md)
    and is enforced by [`schema/index.schema.json`](schema/index.schema.json).
+
+> **Schema v2.** The index is now `schema_version: 2` — additive over v1, so
+> existing entries stay valid. It adds three optional fields: `logo` (above),
+> `repo` (https URL of your source repo, shown as a "Source repo" link), and
+> `bundled`. **Bundled entries** are the panel's own builtin extensions listed
+> for the public catalog; they ship inside the panel, so they carry no
+> `source`/`sha256` and are **generated from the panel repo** — do not hand-type
+> them. Regenerate the block with
+> `node scripts/export-registry-entries.mjs` in the
+> [ServerKit](https://github.com/jhd3197/ServerKit) checkout and paste it in.
 
 Validate before pushing:
 
@@ -56,13 +73,17 @@ merge.
 - **Checksum** — `sha256` present and matching the release asset.
 - **License** — a real OSS license in the extension repo.
 - **Compat** — `min_panel_version` reflects the oldest panel actually tested.
-- **Brand-neutral** — no competitor names in names/descriptions.
+- **Brand-neutral** — no competitor names in names/descriptions, and no
+  em/en dashes (plain-ASCII punctuation; `validate.py` enforces this).
+- **Artwork** — `logo` is https or a committed `assets/<slug>/<file>` that
+  actually exists, ≤ 200 KB, an image.
 
 ## Repo layout
 
 | Path | Purpose |
 |---|---|
 | `index.json` | The registry. The only file panels read. |
-| `schema/index.schema.json` | JSON Schema for `index.json` (schema_version 1). |
+| `schema/index.schema.json` | JSON Schema for `index.json` (schema_version 1 or 2). |
+| `assets/<slug>/` | Extension artwork (logo.svg / logo.png), served via serverkit.ai. |
 | `scripts/validate.py` | Dependency-free rule validator (run locally + CI). |
-| `scripts/verify_sources.py` | Downloads every source and checks `sha256`. |
+| `scripts/verify_sources.py` | Downloads every source, checks `sha256`, HEAD-checks art. |
