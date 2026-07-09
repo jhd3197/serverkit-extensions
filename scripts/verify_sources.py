@@ -10,6 +10,15 @@ but never fail the run — the checksum is enforced panel-side only when
 present. Network failures fail the entry loudly: a listed source that can't
 be downloaded is a broken listing.
 
+Bundled entries (`bundled: true`) ship inside the panel, not from the
+registry — they carry no `source`, so the download/sha256 check is skipped.
+Their `logo`/`screenshots` are still HEAD-checked when external.
+
+Every external `logo` and `screenshots[]` URL is HEAD-checked: reachable
+(status 200), an image (`Content-Type: image/*`), and under the size cap.
+Repo-relative logos ('assets/<slug>/<file>') are checked for existence and
+size on disk. Validity of the on-disk path is enforced by validate.py.
+
 Source forms (same resolution the panel uses):
   - direct ....zip URL                    → download it
   - github.com/<owner>/<repo>             → latest release, prefer a .zip asset,
@@ -30,8 +39,10 @@ try:
 except AttributeError:
     pass
 
-INDEX = Path(__file__).resolve().parent.parent / 'index.json'
+ROOT = Path(__file__).resolve().parent.parent
+INDEX = ROOT / 'index.json'
 UA = {'User-Agent': 'serverkit-extensions-ci'}
+LOGO_MAX_BYTES = 200 * 1024  # 200 KB cap for logos/screenshots
 
 
 def fetch(url, binary=False):
@@ -39,6 +50,17 @@ def fetch(url, binary=False):
     with urllib.request.urlopen(req, timeout=60) as resp:
         data = resp.read()
     return data if binary else json.loads(data.decode('utf-8'))
+
+
+def head(url):
+    """HEAD an image URL; return (status, content_type, content_length)."""
+    req = urllib.request.Request(url, headers=UA, method='HEAD')
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        status = resp.status
+        ctype = (resp.headers.get('Content-Type') or '').split(';')[0].strip().lower()
+        clen = resp.headers.get('Content-Length')
+        clen = int(clen) if clen and clen.isdigit() else None
+    return status, ctype, clen
 
 
 def resolve_zip_url(source):
@@ -60,6 +82,39 @@ def resolve_zip_url(source):
     return release['zipball_url']
 
 
+def check_image(slug, label, ref):
+    """Validate one logo/screenshot reference. Returns 1 on failure, else 0."""
+    if ref.startswith('assets/'):
+        path = ROOT / ref
+        if not path.is_file():
+            print(f"  ✘ {slug}: {label} '{ref}' not found on disk")
+            return 1
+        size = path.stat().st_size
+        if size > LOGO_MAX_BYTES:
+            print(f"  ✘ {slug}: {label} '{ref}' is {size} bytes "
+                  f"(> {LOGO_MAX_BYTES} cap)")
+            return 1
+        print(f"  ✔ {slug}: {label} on disk ({size} bytes)")
+        return 0
+    try:
+        status, ctype, clen = head(ref)
+    except Exception as exc:
+        print(f"  ✘ {slug}: {label} '{ref}' unreachable: {exc}")
+        return 1
+    if status != 200:
+        print(f"  ✘ {slug}: {label} '{ref}' returned HTTP {status}")
+        return 1
+    if not ctype.startswith('image/'):
+        print(f"  ✘ {slug}: {label} '{ref}' is not an image (Content-Type {ctype!r})")
+        return 1
+    if clen is not None and clen > LOGO_MAX_BYTES:
+        print(f"  ✘ {slug}: {label} '{ref}' is {clen} bytes (> {LOGO_MAX_BYTES} cap)")
+        return 1
+    print(f"  ✔ {slug}: {label} reachable ({ctype}"
+          f"{f', {clen} bytes' if clen is not None else ''})")
+    return 0
+
+
 def main():
     data = json.loads(INDEX.read_text(encoding='utf-8'))
     only = set(sys.argv[1:])
@@ -70,23 +125,35 @@ def main():
         if only and slug not in only:
             continue
         checked += 1
-        try:
-            zip_url = resolve_zip_url(e['source'])
-            blob = fetch(zip_url, binary=True)
-            digest = hashlib.sha256(blob).hexdigest()
-        except Exception as exc:
-            print(f"  ✘ {slug}: source unresolvable/undownloadable: {exc}")
-            failed += 1
-            continue
-        if e.get('sha256') is None:
-            print(f"  ⚠ {slug}: downloadable ({len(blob)} bytes, sha256 {digest}) "
-                  f"but no sha256 pinned — consider adding the printed digest")
-        elif digest == e['sha256']:
-            print(f"  ✔ {slug}: sha256 verified ({len(blob)} bytes)")
+
+        if e.get('bundled') is True:
+            print(f"  ⋯ {slug}: bundled entry — source/sha256 check skipped")
         else:
-            print(f"  ✘ {slug}: sha256 MISMATCH — index has {e['sha256']}, "
-                  f"download is {digest}")
-            failed += 1
+            try:
+                zip_url = resolve_zip_url(e['source'])
+                blob = fetch(zip_url, binary=True)
+                digest = hashlib.sha256(blob).hexdigest()
+            except Exception as exc:
+                print(f"  ✘ {slug}: source unresolvable/undownloadable: {exc}")
+                failed += 1
+                continue
+            if e.get('sha256') is None:
+                print(f"  ⚠ {slug}: downloadable ({len(blob)} bytes, sha256 {digest}) "
+                      f"but no sha256 pinned — consider adding the printed digest")
+            elif digest == e['sha256']:
+                print(f"  ✔ {slug}: sha256 verified ({len(blob)} bytes)")
+            else:
+                print(f"  ✘ {slug}: sha256 MISMATCH — index has {e['sha256']}, "
+                      f"download is {digest}")
+                failed += 1
+
+        # Art checks apply to bundled and non-bundled entries alike.
+        logo = e.get('logo')
+        if logo:
+            failed += check_image(slug, 'logo', logo)
+        for j, shot in enumerate(e.get('screenshots', []) or []):
+            failed += check_image(slug, f'screenshots[{j}]', shot)
+
     if only and checked == 0:
         print(f"  (no entries matched {sorted(only)})")
     print(f"\n{'✘' if failed else '✔'} verified {checked} source(s), {failed} failure(s)")

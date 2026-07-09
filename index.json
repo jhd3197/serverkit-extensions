@@ -1,6 +1,6 @@
 {
-  "schema_version": 1,
-  "updated": "2026-07-03",
+  "schema_version": 2,
+  "updated": "2026-07-09",
   "extensions": [
     {
       "slug": "serverkit-gui",
@@ -18,7 +18,228 @@
       "max_panel_version": null,
       "source": "https://github.com/jhd3197/serverkit-gui/releases/download/v0.1.0-beta.1/serverkit-gui-0.1.0-beta.1.zip",
       "sha256": "432d31396075f8e72921d1c19564e1a819d7fdd674b8d73349e0c13feb51a5f5",
-      "homepage": "https://github.com/jhd3197/serverkit-gui"
+      "homepage": "https://github.com/jhd3197/serverkit-gui",
+      "repo": "https://github.com/jhd3197/serverkit-gui",
+      "logo": "assets/serverkit-gui/logo.svg"
+    },
+    {
+      "slug": "serverkit-cloud-provision",
+      "display_name": "Cloud Provisioning",
+      "description": "Provision new servers from connected cloud providers, as the Cloud Servers tab in the Servers group.",
+      "version": "1.0.0",
+      "category": "deployment",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": true,
+      "permissions": [
+        "network"
+      ],
+      "min_panel_version": null,
+      "max_panel_version": null,
+      "repo": "https://github.com/jhd3197/ServerKit"
+    },
+    {
+      "slug": "serverkit-cloudflare-ops",
+      "display_name": "Cloudflare Zone Ops",
+      "description": "Cloudflare zone operations on top of your existing Cloudflare DNS connection, covering zone settings, cache purge, WAF, Workers, Tunnels, and R2/KV/D1 storage. DNS records and the connection itself stay in the core Domains surface; this adds the per-zone control panel reached from a Cloudflare-managed domain.",
+      "version": "1.0.0",
+      "category": "integration",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": true,
+      "permissions": [
+        "network"
+      ],
+      "min_panel_version": "1.7.0",
+      "max_panel_version": null,
+      "repo": "https://github.com/jhd3197/ServerKit"
+    },
+    {
+      "slug": "serverkit-crowdsec",
+      "display_name": "CrowdSec",
+      "description": "CrowdSec security engine integration. Surface active decisions and alerts, ban/unban IPs, and manage allowlists straight from the panel. Read/write via cscli on the host; shows install guidance when CrowdSec is absent (never auto-installs).",
+      "version": "1.0.0",
+      "category": "security",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": true,
+      "permissions": [
+        "shell"
+      ],
+      "min_panel_version": "1.7.0",
+      "max_panel_version": null,
+      "repo": "https://github.com/jhd3197/ServerKit"
+    },
+    {
+      "slug": "serverkit-dns-server",
+      "display_name": "DNS Server",
+      "description": "Host authoritative DNS on this box with PowerDNS (SQLite backend) in a managed Docker container, covering zones, records, DNSSEC, and delegation checks from the panel. Authoritative only (no recursion); complements provider integrations like Cloudflare, never replaces them. Built for homelab and air-gapped setups.",
+      "version": "1.0.0",
+      "category": "integration",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": true,
+      "permissions": [
+        "shell",
+        "docker"
+      ],
+      "min_panel_version": "1.7.0",
+      "max_panel_version": null,
+      "repo": "https://github.com/jhd3197/ServerKit"
+    },
+    {
+      "slug": "serverkit-email",
+      "display_name": "Email Server",
+      "description": "Full mail-server stack with Postfix/Dovecot, domains, mailboxes, aliases, DKIM/SPF/DMARC, SpamAssassin filtering, and Roundcube webmail. Most panels never run a mail server, so it ships as an opt-in extension.",
+      "version": "1.0.0",
+      "category": "integration",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": true,
+      "permissions": [
+        "shell",
+        "filesystem",
+        "network"
+      ],
+      "min_panel_version": "1.7.0",
+      "max_panel_version": null,
+      "repo": "https://github.com/jhd3197/ServerKit"
+    },
+    {
+      "slug": "serverkit-ftp",
+      "display_name": "FTP Server",
+      "description": "FTP server management (vsftpd/proftpd) with install, users, config and logs, as a tab in the Files group.",
+      "version": "1.0.0",
+      "category": "utility",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": true,
+      "permissions": [
+        "shell",
+        "filesystem"
+      ],
+      "min_panel_version": null,
+      "max_panel_version": null,
+      "repo": "https://github.com/jhd3197/ServerKit"
+    },
+    {
+      "slug": "serverkit-git",
+      "display_name": "Git Server",
+      "description": "Self-hosted Git server (Gitea) exposed through the ServerKit extension system.",
+      "version": "1.0.0",
+      "category": "deployment",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": true,
+      "permissions": [
+        "docker",
+        "filesystem"
+      ],
+      "min_panel_version": null,
+      "max_panel_version": null,
+      "repo": "https://github.com/jhd3197/ServerKit"
+    },
+    {
+      "slug": "serverkit-gpu",
+      "display_name": "GPU Monitor",
+      "description": "Live NVIDIA GPU metrics covering utilization, memory, temperature, power and fan, for servers with a GPU.",
+      "version": "1.0.0",
+      "category": "monitoring",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": true,
+      "permissions": [
+        "shell"
+      ],
+      "min_panel_version": "1.7.0",
+      "max_panel_version": null,
+      "repo": "https://github.com/jhd3197/ServerKit"
+    },
+    {
+      "slug": "serverkit-mail",
+      "display_name": "Mail Server",
+      "description": "Self-hosted mail server powered by Stalwart in a managed Docker container, providing domains, mailboxes, forwarders, and autoresponders, with automatic DKIM/SPF/DMARC/MX record deployment, a deliverability preflight (PTR, port-25 egress, RBL) that gates outbound sending, brute-force jails, and maildir backups. Most panels never run a mail server, so it ships as an opt-in extension.",
+      "version": "1.0.0",
+      "category": "integration",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": true,
+      "permissions": [
+        "shell",
+        "filesystem",
+        "network",
+        "docker"
+      ],
+      "min_panel_version": "1.7.0",
+      "max_panel_version": null,
+      "repo": "https://github.com/jhd3197/ServerKit"
+    },
+    {
+      "slug": "serverkit-remote-access",
+      "display_name": "Remote Access",
+      "description": "WireGuard remote-access tunnels between paired agents to expose NAT'd home services through an edge server. Fleet-wide view as a tab in the Servers group; per-server management stays on the server detail page.",
+      "version": "1.0.0",
+      "category": "integration",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": true,
+      "permissions": [
+        "network"
+      ],
+      "min_panel_version": null,
+      "max_panel_version": null,
+      "repo": "https://github.com/jhd3197/ServerKit"
+    },
+    {
+      "slug": "serverkit-status",
+      "display_name": "Status Pages",
+      "description": "Public status pages backed by uptime monitors, with the management UI as a tab in the Observability group. The public /status/<slug> page itself stays core.",
+      "version": "1.0.0",
+      "category": "monitoring",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": true,
+      "permissions": [],
+      "min_panel_version": null,
+      "max_panel_version": null,
+      "repo": "https://github.com/jhd3197/ServerKit"
+    },
+    {
+      "slug": "serverkit-wordpress",
+      "display_name": "WordPress",
+      "description": "The full WordPress suite, covering site provisioning, plugin library, environments/pipelines, updates, security hardening, vulnerability scanning, analytics and reports. Ships bundled and installed by default (a flagship), and can be uninstalled to slim the core.",
+      "version": "1.0.0",
+      "category": "integration",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": true,
+      "permissions": [
+        "shell",
+        "filesystem",
+        "network",
+        "docker",
+        "database"
+      ],
+      "min_panel_version": "1.7.0",
+      "max_panel_version": null,
+      "repo": "https://github.com/jhd3197/ServerKit"
+    },
+    {
+      "slug": "serverkit-workflows",
+      "display_name": "Workflow Builder",
+      "description": "Visual automation builder. Chain deploy, build, and notification steps into pipelines on a drag-and-drop canvas.",
+      "version": "1.0.0",
+      "category": "deployment",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": true,
+      "permissions": [
+        "docker",
+        "shell"
+      ],
+      "min_panel_version": null,
+      "max_panel_version": null,
+      "repo": "https://github.com/jhd3197/ServerKit"
     }
   ]
 }
