@@ -54,7 +54,7 @@
       "max_panel_version": null,
       "repo": "https://github.com/jhd3197/ServerKit",
       "featured": true,
-      "feature_score": 95
+      "feature_score": 70
     },
     {
       "slug": "serverkit-crowdsec",
@@ -155,7 +155,9 @@
       ],
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit"
+      "repo": "https://github.com/jhd3197/ServerKit",
+      "featured": true,
+      "feature_score": 60
     },
     {
       "slug": "serverkit-mail",
@@ -224,7 +226,9 @@
       ],
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit"
+      "repo": "https://github.com/jhd3197/ServerKit",
+      "featured": true,
+      "feature_score": 80
     },
     {
       "slug": "serverkit-k8s",
@@ -261,7 +265,9 @@
       ],
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit"
+      "repo": "https://github.com/jhd3197/ServerKit",
+      "featured": true,
+      "feature_score": 90
     },
     {
       "slug": "serverkit-faro",
@@ -280,7 +286,7 @@
       "repo": "https://github.com/jhd3197/serverkit-faro",
       "homepage": "https://github.com/jhd3197/serverkit-faro",
       "featured": true,
-      "feature_score": 90
+      "feature_score": 100
     }
   ]
 }
