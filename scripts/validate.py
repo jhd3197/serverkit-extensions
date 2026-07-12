@@ -36,7 +36,7 @@ KNOWN_FIELDS = {
     'slug', 'display_name', 'description', 'version', 'category', 'author',
     'first_party', 'bundled', 'permissions', 'min_panel_version',
     'max_panel_version', 'source', 'sha256', 'repo', 'logo', 'homepage',
-    'icon', 'screenshots',
+    'icon', 'screenshots', 'featured', 'feature_score',
 }
 SLUG_RE = re.compile(r'^[a-z0-9]+(-[a-z0-9]+)*$')
 SEMVER_RE = re.compile(r'^\d+\.\d+(\.\d+)?([.-][0-9A-Za-z.-]+)?$')
