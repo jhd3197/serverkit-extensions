@@ -280,8 +280,7 @@
       "repo": "https://github.com/jhd3197/serverkit-faro",
       "homepage": "https://github.com/jhd3197/serverkit-faro",
       "featured": true,
-      "feature_score": 90,
-      "logo": "assets/serverkit-faro/logo.png"
+      "feature_score": 90
     }
   ]
 }
