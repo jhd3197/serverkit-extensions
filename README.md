@@ -8,6 +8,34 @@ build step, no backend, no accounts.
 
 ServerKit is free/OSS: there are **no paid extensions, quotas, or billing — ever**.
 
+## Extensions in the registry
+
+> This table is a human-friendly mirror of [`index.json`](index.json). The JSON
+> is the source of truth panels read; if the two ever disagree, trust the JSON.
+
+Legend: **Type** — `Bundled` ships inside the panel (installed/uninstalled in
+place, no download); `Installable` is fetched and checksum-verified from a
+release.
+
+| Extension | Category | Type | Summary |
+|---|---|---|---|
+| [Automations](https://github.com/jhd3197/ServerKit) | deployment | Bundled | Node-based automation builder powered by tramo: visual workflows with 21 integration packs, deployed to a managed container. |
+| [Cloud Provisioning](https://github.com/jhd3197/ServerKit) | deployment | Bundled | Provision new servers from connected cloud providers (Cloud Servers tab). |
+| [Cloudflare Zone Ops](https://github.com/jhd3197/ServerKit) | integration | Bundled | Zone settings, cache purge, WAF, Workers, Tunnels, and R2/KV/D1 on your Cloudflare DNS connection. |
+| [CrowdSec](https://github.com/jhd3197/ServerKit) | security | Bundled | CrowdSec engine integration: decisions, alerts, ban/unban, and allowlists via `cscli`. |
+| [DNS Server](https://github.com/jhd3197/ServerKit) | integration | Bundled | Authoritative DNS via PowerDNS in Docker: zones, records, DNSSEC, delegation checks. |
+| [Email Server](https://github.com/jhd3197/ServerKit) | integration | Bundled | Postfix/Dovecot mail stack with DKIM/SPF/DMARC, SpamAssassin, and Roundcube webmail. |
+| [Faro](https://github.com/jhd3197/serverkit-faro) | utility | Installable | One-click Open in Faro: `faro://` SFTP deep links from Services, Domains, and WordPress. |
+| [FTP Server](https://github.com/jhd3197/ServerKit) | utility | Bundled | FTP server management (vsftpd/proftpd): users, config, and logs (Files tab). |
+| [Git Server](https://github.com/jhd3197/ServerKit) | deployment | Bundled | Self-hosted Git server (Gitea) exposed through the extension system. |
+| [GPU Monitor](https://github.com/jhd3197/ServerKit) | monitoring | Bundled | Live NVIDIA GPU metrics: utilization, memory, temperature, power, and fan. |
+| [Kubernetes](https://github.com/jhd3197/ServerKit) | deployment | Bundled | Manage remote clusters via kubectl: nodes, workloads, pods with live logs, plus scale/restart/delete/apply. |
+| [Mail Server](https://github.com/jhd3197/ServerKit) | integration | Bundled | Self-hosted mail via Stalwart with a deliverability preflight (PTR, port-25, RBL) and brute-force jails. |
+| [Remote Access](https://github.com/jhd3197/ServerKit) | integration | Bundled | WireGuard tunnels between paired agents to expose NAT'd home services through an edge server. |
+| [ServerKit Agent GUI (Beta)](https://github.com/jhd3197/serverkit-gui) | monitoring | Installable | Agent-powered desktop view: streams live Windows/Linux screenshots for managed servers. |
+| [Status Pages](https://github.com/jhd3197/ServerKit) | monitoring | Bundled | Public status pages backed by uptime monitors (management UI in the Observability group). |
+| [WordPress](https://github.com/jhd3197/ServerKit) | integration | Bundled | Full WordPress suite: provisioning, plugins, environments, updates, security, and vulnerability scanning (flagship). |
+
 ## How panels consume this
 
 - Panels fetch the raw index from `SERVERKIT_REGISTRY_URL`
@@ -63,10 +91,10 @@ python3 scripts/verify_sources.py    # downloads each source, checks sha256
 Both run in CI on every PR; a broken or checksum-mismatched listing does not
 merge.
 
-> The index starts empty on purpose: every entry must have a downloadable,
-> checksum-verifiable release *before* it lands (CI enforces this).
-> `serverkit-gui` is queued as the first entry, pending its first release
-> artifact.
+> Every `Installable` entry must point at a downloadable, checksum-verifiable
+> release *before* it lands (CI enforces this). `Bundled` entries are the
+> exception: they ship inside the panel and are generated from the panel repo,
+> so they carry no `source`/`sha256`.
 
 ## Review checklist (what a maintainer verifies)
 
