@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated": "2026-07-09",
+  "updated": "2026-07-12",
   "extensions": [
     {
       "slug": "serverkit-gui",
@@ -52,7 +52,9 @@
       ],
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit"
+      "repo": "https://github.com/jhd3197/ServerKit",
+      "featured": true,
+      "feature_score": 95
     },
     {
       "slug": "serverkit-crowdsec",
@@ -225,9 +227,27 @@
       "repo": "https://github.com/jhd3197/ServerKit"
     },
     {
-      "slug": "serverkit-workflows",
-      "display_name": "Workflow Builder",
-      "description": "Visual automation builder. Chain deploy, build, and notification steps into pipelines on a drag-and-drop canvas.",
+      "slug": "serverkit-k8s",
+      "display_name": "Kubernetes",
+      "description": "Manage remote Kubernetes clusters from the panel. Add a cluster by pasting its kubeconfig (stored encrypted, one row per cluster) and the extension shells out to kubectl to show cluster health, nodes, namespaces, workloads, pods with live logs, services, and ingresses, plus scale, restart, delete, and apply-manifest actions. Most panels never touch Kubernetes, so it ships as an opt-in extension and needs no cluster on the panel host itself.",
+      "version": "1.0.0",
+      "category": "deployment",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": true,
+      "permissions": [
+        "shell",
+        "filesystem",
+        "network"
+      ],
+      "min_panel_version": "1.7.0",
+      "max_panel_version": null,
+      "repo": "https://github.com/jhd3197/ServerKit"
+    },
+    {
+      "slug": "serverkit-tramo",
+      "display_name": "Automations",
+      "description": "Node-based automation builder powered by tramo. Design workflows on a visual canvas (triggers, actions, branches, loops, approval gates) that react to panel events or run on a schedule, with 21 brand integration packs (Telegram, GitHub, Gmail, Discord, Notion, Stripe, Cloudflare, Postgres, Twilio and more). Enabled workflows deploy to a managed tramo container on the panel host that runs them headless, with run history, approvals, and inbound webhooks proxied through the panel. This replaces the older drag-and-drop Workflow Builder.",
       "version": "1.0.0",
       "category": "deployment",
       "author": "ServerKit",
@@ -235,11 +255,33 @@
       "bundled": true,
       "permissions": [
         "docker",
-        "shell"
+        "shell",
+        "filesystem",
+        "network"
       ],
-      "min_panel_version": null,
+      "min_panel_version": "1.7.0",
       "max_panel_version": null,
       "repo": "https://github.com/jhd3197/ServerKit"
+    },
+    {
+      "slug": "serverkit-faro",
+      "display_name": "Faro",
+      "description": "One-click Open in Faro. Adds a Connect with Faro button to Services, Domains, and WordPress sites that opens the Faro desktop client prefilled to SFTP into that site's web root, via faro:// deep links. No credentials ever leave the panel: a link only prefills Faro's connection editor for the user to review and connect.",
+      "version": "1.0.2",
+      "category": "utility",
+      "author": "Juan Denis",
+      "first_party": true,
+      "bundled": false,
+      "permissions": [],
+      "min_panel_version": "1.7.0",
+      "max_panel_version": null,
+      "source": "https://github.com/jhd3197/serverkit-faro/releases/download/v1.0.2/serverkit-faro-1.0.2.zip",
+      "sha256": "eba4a111bf7642fd4f72fbb491f78609f7663199d650950c21c88b706317f3b3",
+      "repo": "https://github.com/jhd3197/serverkit-faro",
+      "homepage": "https://github.com/jhd3197/serverkit-faro",
+      "featured": true,
+      "feature_score": 90,
+      "logo": "assets/serverkit-faro/logo.png"
     }
   ]
 }

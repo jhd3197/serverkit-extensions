@@ -34,7 +34,9 @@ ServerKit is free/OSS: there are **no paid extensions, quotas, or billing — ev
    (`assets/<slug>/logo.svg`) — the panel and the serverkit.ai `/ext` endpoint
    resolve it to an absolute URL, so one relative path works everywhere. An
    external `https://` logo URL is also accepted (CI HEAD-checks it: reachable,
-   `image/*`, under the size cap).
+   `image/*`, under the size cap). **Use the downloadable logo template + spec
+   (512 px canvas, safe zones, transparency check) in
+   [`assets/_brand/`](assets/_brand/README.md).**
 4. **Open a PR** adding (or bumping) your entry in `index.json`. Bumping
    `version` is what surfaces the "Update available" badge on installed panels.
    The full field reference lives in

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ServerKit extension logo template.
+  Open in Figma / Illustrator / Inkscape, place your artwork on the ARTWORK
+  layer, keep essential detail inside the SAFE ZONE, then hide the GUIDES layer
+  and export a 512x512 PNG with a TRANSPARENT background.
+  See ./README.md for the full spec.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <pattern id="checker" width="24" height="24" patternUnits="userSpaceOnUse">
+      <rect width="24" height="24" fill="#ffffff"/>
+      <rect width="12" height="12" fill="#eceff3"/>
+      <rect x="12" y="12" width="12" height="12" fill="#eceff3"/>
+    </pattern>
+  </defs>
+
+  <!-- transparency artboard (delete/hide before export) -->
+  <rect width="512" height="512" fill="url(#checker)"/>
+
+  <!-- ==== ARTWORK LAYER: put your icon here (this sample = the Faro cover) ==== -->
+  <g opacity="0.18">
+    <rect x="96" y="96" width="320" height="320" rx="72" fill="#1b1f2b"/>
+    <text x="256" y="270" font-family="sans-serif" font-size="26" fill="#8a93a6"
+          text-anchor="middle">your artwork here</text>
+  </g>
+
+  <!-- ==================== GUIDES LAYER (hide before export) ==================== -->
+  <g fill="none" font-family="sans-serif">
+    <!-- trim / canvas edge -->
+    <rect x="0.5" y="0.5" width="511" height="511" stroke="#c026d3" stroke-width="1"/>
+
+    <!-- rounded-square mask (~18% radius): how cards may round the icon -->
+    <rect x="24" y="24" width="464" height="464" rx="92" stroke="#c026d3"
+          stroke-width="1.5" stroke-dasharray="2 6" opacity="0.7"/>
+
+    <!-- circular mask guide: keep the logo readable if clipped to a circle -->
+    <circle cx="256" cy="256" r="232" stroke="#0ea5e9" stroke-width="1.5"
+            stroke-dasharray="2 6" opacity="0.7"/>
+
+    <!-- SAFE ZONE (inner 80%, ~51px margin): keep essential detail inside -->
+    <rect x="51" y="51" width="410" height="410" rx="64" stroke="#16a34a"
+          stroke-width="2" stroke-dasharray="8 6"/>
+    <rect x="51" y="34" width="150" height="16" fill="none"/>
+    <text x="51" y="46" font-size="13" fill="#16a34a">SAFE ZONE · inner 80%</text>
+
+    <!-- center + thirds guides -->
+    <g stroke="#c026d3" stroke-width="0.75" opacity="0.45">
+      <line x1="256" y1="0" x2="256" y2="512"/>
+      <line x1="0" y1="256" x2="512" y2="256"/>
+      <line x1="170.7" y1="0" x2="170.7" y2="512" stroke-dasharray="2 8"/>
+      <line x1="341.3" y1="0" x2="341.3" y2="512" stroke-dasharray="2 8"/>
+      <line x1="0" y1="170.7" x2="512" y2="170.7" stroke-dasharray="2 8"/>
+      <line x1="0" y1="341.3" x2="512" y2="341.3" stroke-dasharray="2 8"/>
+    </g>
+
+    <!-- corner spec labels -->
+    <g font-size="12" fill="#64748b">
+      <text x="8" y="504">512 × 512 · PNG · transparent bg</text>
+      <text x="504" y="16" text-anchor="end">also export 256 × 256</text>
+    </g>
+
+    <!-- legend -->
+    <g font-size="12">
+      <rect x="330" y="474" width="14" height="4" fill="#16a34a"/>
+      <text x="350" y="480" fill="#16a34a">safe zone</text>
+      <rect x="330" y="490" width="14" height="4" fill="#0ea5e9"/>
+      <text x="350" y="496" fill="#0ea5e9">circle mask</text>
+    </g>
+  </g>
+</svg>
