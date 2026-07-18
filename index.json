@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated": "2026-07-12",
+  "updated": "2026-07-18",
   "extensions": [
     {
       "slug": "serverkit-gui",
@@ -268,6 +268,27 @@
       "repo": "https://github.com/jhd3197/ServerKit",
       "featured": true,
       "feature_score": 90
+    },
+    {
+      "slug": "serverkit-analytics",
+      "display_name": "Web Analytics",
+      "description": "Privacy-first, self-hosted web analytics for the sites this panel manages. A lightweight (<4 KB) cookieless JavaScript tracker and optional server-log ingestion feed a persistent time series stored on your own server, and nothing leaves the box. Visitor identity is a daily-rotating salted hash of IP+user-agent (raw IPs are never stored), DoNotTrack is honored, and there are no cookies, fingerprinting, or third-party calls. A real dashboard inside the panel shows visitors, pageviews, top pages, referrers, devices, and a live realtime counter, with one-click wiring into managed WordPress and nginx-proxied apps.",
+      "version": "1.0.0",
+      "category": "monitoring",
+      "author": "ServerKit",
+      "first_party": true,
+      "featured": true,
+      "feature_score": 88,
+      "bundled": true,
+      "permissions": [
+        "db",
+        "network",
+        "filesystem"
+      ],
+      "min_panel_version": "1.7.0",
+      "max_panel_version": null,
+      "repo": "https://github.com/jhd3197/ServerKit",
+      "logo": "assets/serverkit-analytics/logo.png"
     },
     {
       "slug": "serverkit-faro",

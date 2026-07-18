@@ -34,6 +34,7 @@ release.
 | [Remote Access](https://github.com/jhd3197/ServerKit) | integration | Bundled | WireGuard tunnels between paired agents to expose NAT'd home services through an edge server. |
 | [ServerKit Agent GUI (Beta)](https://github.com/jhd3197/serverkit-gui) | monitoring | Installable | Agent-powered desktop view: streams live Windows/Linux screenshots for managed servers. |
 | [Status Pages](https://github.com/jhd3197/ServerKit) | monitoring | Bundled | Public status pages backed by uptime monitors (management UI in the Observability group). |
+| [Web Analytics](https://github.com/jhd3197/ServerKit) | monitoring | Bundled | Privacy-first, self-hosted web analytics: a cookieless sub-4 KB tracker and log ingestion feed an in-panel dashboard, with one-click WordPress/nginx wiring. |
 | [WordPress](https://github.com/jhd3197/ServerKit) | integration | Bundled | Full WordPress suite: provisioning, plugins, environments, updates, security, and vulnerability scanning (flagship). |
 
 ## How panels consume this
