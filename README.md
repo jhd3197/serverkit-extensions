@@ -19,22 +19,22 @@ release.
 
 | Extension | Category | Type | Summary |
 |---|---|---|---|
-| [Automations](https://github.com/jhd3197/ServerKit) | deployment | Bundled | Node-based automation builder powered by tramo: visual workflows with 21 integration packs, deployed to a managed container. |
+| [Analytics](https://github.com/jhd3197/serverkit-analytics) | monitoring | Installable | Privacy-first, self-hosted web analytics: a cookieless sub-4 KB tracker and log ingestion feed an in-panel dashboard, with one-click WordPress/nginx wiring. |
+| [Automations](https://github.com/jhd3197/serverkit-tramo) | deployment | Installable | Node-based automation builder powered by tramo: visual workflows with 21 integration packs, deployed to a managed container. |
 | [Cloud Provisioning](https://github.com/jhd3197/ServerKit) | deployment | Bundled | Provision new servers from connected cloud providers (Cloud Servers tab). |
 | [Cloudflare Zone Ops](https://github.com/jhd3197/ServerKit) | integration | Bundled | Zone settings, cache purge, WAF, Workers, Tunnels, and R2/KV/D1 on your Cloudflare DNS connection. |
-| [CrowdSec](https://github.com/jhd3197/ServerKit) | security | Bundled | CrowdSec engine integration: decisions, alerts, ban/unban, and allowlists via `cscli`. |
-| [DNS Server](https://github.com/jhd3197/ServerKit) | integration | Bundled | Authoritative DNS via PowerDNS in Docker: zones, records, DNSSEC, delegation checks. |
+| [CrowdSec](https://github.com/jhd3197/serverkit-crowdsec) | security | Installable | CrowdSec engine integration: decisions, alerts, ban/unban, and allowlists via `cscli`. |
+| [DNS Server](https://github.com/jhd3197/serverkit-dns-server) | networking | Installable | Authoritative DNS via PowerDNS in Docker: zones, records, DNSSEC, delegation checks. |
 | [Email Server](https://github.com/jhd3197/ServerKit) | integration | Bundled | Postfix/Dovecot mail stack with DKIM/SPF/DMARC, SpamAssassin, and Roundcube webmail. |
 | [Faro](https://github.com/jhd3197/serverkit-faro) | utility | Installable | One-click Open in Faro: `faro://` SFTP deep links from Services, Domains, and WordPress. |
 | [FTP Server](https://github.com/jhd3197/ServerKit) | utility | Bundled | FTP server management (vsftpd/proftpd): users, config, and logs (Files tab). |
 | [Git Server](https://github.com/jhd3197/ServerKit) | deployment | Bundled | Self-hosted Git server (Gitea) exposed through the extension system. |
-| [GPU Monitor](https://github.com/jhd3197/ServerKit) | monitoring | Bundled | Live NVIDIA GPU metrics: utilization, memory, temperature, power, and fan. |
-| [Kubernetes](https://github.com/jhd3197/ServerKit) | deployment | Bundled | Manage remote clusters via kubectl: nodes, workloads, pods with live logs, plus scale/restart/delete/apply. |
-| [Mail Server](https://github.com/jhd3197/ServerKit) | integration | Bundled | Self-hosted mail via Stalwart with a deliverability preflight (PTR, port-25, RBL) and brute-force jails. |
+| [GPU Monitor](https://github.com/jhd3197/serverkit-gpu) | monitoring | Installable | Live NVIDIA GPU metrics: utilization, memory, temperature, power, and fan. |
+| [Kubernetes](https://github.com/jhd3197/serverkit-k8s) | deployment | Installable | Manage remote clusters via kubectl: nodes, workloads, pods with live logs, plus scale/restart/delete/apply. |
+| [Mail Server](https://github.com/jhd3197/serverkit-mail) | integration | Installable | Self-hosted mail via Stalwart with a deliverability preflight (PTR, port-25, RBL) and brute-force jails. |
 | [Remote Access](https://github.com/jhd3197/ServerKit) | integration | Bundled | WireGuard tunnels between paired agents to expose NAT'd home services through an edge server. |
 | [ServerKit Agent GUI (Beta)](https://github.com/jhd3197/serverkit-gui) | monitoring | Installable | Agent-powered desktop view: streams live Windows/Linux screenshots for managed servers. |
 | [Status Pages](https://github.com/jhd3197/ServerKit) | monitoring | Bundled | Public status pages backed by uptime monitors (management UI in the Observability group). |
-| [Web Analytics](https://github.com/jhd3197/ServerKit) | monitoring | Bundled | Privacy-first, self-hosted web analytics: a cookieless sub-4 KB tracker and log ingestion feed an in-panel dashboard, with one-click WordPress/nginx wiring. |
 | [WordPress](https://github.com/jhd3197/ServerKit) | integration | Bundled | Full WordPress suite: provisioning, plugins, environments, updates, security, and vulnerability scanning (flagship). |
 
 ## How panels consume this
@@ -50,6 +50,13 @@ release.
   `min_panel_version` / `max_panel_version`.
 
 ## Publishing an extension
+
+> **First-party repos use the automated pipeline** — bump `version` in
+> `plugin.json`, push, and CI builds the zip, cuts the GitHub release, and
+> upserts this registry (version, URL, sha256) by itself. Setup is five
+> copied files + one secret: see [`RELEASING.md`](RELEASING.md). The manual
+> flow below still works and is what community extensions without the token
+> use.
 
 1. **Structure your repo** per the panel's
    [extension docs](https://github.com/jhd3197/ServerKit/blob/main/docs/EXTENSIONS.md):
@@ -114,6 +121,7 @@ merge.
 | Path | Purpose |
 |---|---|
 | `index.json` | The registry. The only file panels read. |
+| `RELEASING.md` | The automated release pipeline (CI builds the zip, cuts the release, upserts `index.json`). |
 | `schema/index.schema.json` | JSON Schema for `index.json` (schema_version 1 or 2). |
 | `assets/<slug>/` | Extension artwork (logo.svg / logo.png), served via serverkit.ai. |
 | `scripts/validate.py` | Dependency-free rule validator (run locally + CI). |

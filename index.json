@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated": "2026-07-18",
+  "updated": "2026-07-20",
   "extensions": [
     {
       "slug": "serverkit-gui",
@@ -64,30 +64,40 @@
       "category": "security",
       "author": "ServerKit",
       "first_party": true,
-      "bundled": true,
+      "bundled": false,
       "permissions": [
         "shell"
       ],
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit"
+      "source": "https://github.com/jhd3197/serverkit-crowdsec/releases/download/v1.0.0/serverkit-crowdsec-1.0.0.zip",
+      "sha256": "4d92982a55a0ec0b5d7e34012b0d8b0b5655247d49b5dcaf075288bed664cabc",
+      "repo": "https://github.com/jhd3197/serverkit-crowdsec",
+      "homepage": "https://github.com/jhd3197/serverkit-crowdsec",
+      "featured": false,
+      "feature_score": 0
     },
     {
       "slug": "serverkit-dns-server",
       "display_name": "DNS Server",
       "description": "Host authoritative DNS on this box with PowerDNS (SQLite backend) in a managed Docker container, covering zones, records, DNSSEC, and delegation checks from the panel. Authoritative only (no recursion); complements provider integrations like Cloudflare, never replaces them. Built for homelab and air-gapped setups.",
       "version": "1.0.0",
-      "category": "integration",
+      "category": "networking",
       "author": "ServerKit",
       "first_party": true,
-      "bundled": true,
+      "bundled": false,
       "permissions": [
         "shell",
         "docker"
       ],
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit"
+      "source": "https://github.com/jhd3197/serverkit-dns-server/releases/download/v1.0.0/serverkit-dns-server-1.0.0.zip",
+      "sha256": "e17bbc19d25a01a578a085129e786d478bea7af53dfd425f130b753da09d75d3",
+      "repo": "https://github.com/jhd3197/serverkit-dns-server",
+      "homepage": "https://github.com/jhd3197/serverkit-dns-server",
+      "featured": false,
+      "feature_score": 0
     },
     {
       "slug": "serverkit-email",
@@ -144,18 +154,21 @@
     {
       "slug": "serverkit-gpu",
       "display_name": "GPU Monitor",
-      "description": "Live NVIDIA GPU metrics covering utilization, memory, temperature, power and fan, for servers with a GPU.",
+      "description": "Live NVIDIA GPU metrics covering utilization, memory, temperature, power and fan, for servers with a GPU. Adds a GPU Monitor page; the sidebar entry appears only on hosts where nvidia-smi is available.",
       "version": "1.0.0",
       "category": "monitoring",
       "author": "ServerKit",
       "first_party": true,
-      "bundled": true,
+      "bundled": false,
       "permissions": [
         "shell"
       ],
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit",
+      "source": "https://github.com/jhd3197/serverkit-gpu/releases/download/v1.0.0/serverkit-gpu-1.0.0.zip",
+      "sha256": "c861dafadd3e5d5a72836e7d4248b18143cea1aea8c45d32d5211c83f28f9985",
+      "repo": "https://github.com/jhd3197/serverkit-gpu",
+      "homepage": "https://github.com/jhd3197/serverkit-gpu",
       "featured": true,
       "feature_score": 60
     },
@@ -167,7 +180,7 @@
       "category": "integration",
       "author": "ServerKit",
       "first_party": true,
-      "bundled": true,
+      "bundled": false,
       "permissions": [
         "shell",
         "filesystem",
@@ -176,7 +189,12 @@
       ],
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit"
+      "source": "https://github.com/jhd3197/serverkit-mail/releases/download/v1.0.0/serverkit-mail-1.0.0.zip",
+      "sha256": "0132031e6b784bde5ebb6c70b5e0b15e085ed8a51f8c0fc65c50540824fcf294",
+      "repo": "https://github.com/jhd3197/serverkit-mail",
+      "homepage": "https://github.com/jhd3197/serverkit-mail",
+      "featured": false,
+      "feature_score": 0
     },
     {
       "slug": "serverkit-remote-access",
@@ -238,7 +256,7 @@
       "category": "deployment",
       "author": "ServerKit",
       "first_party": true,
-      "bundled": true,
+      "bundled": false,
       "permissions": [
         "shell",
         "filesystem",
@@ -246,7 +264,12 @@
       ],
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit"
+      "source": "https://github.com/jhd3197/serverkit-k8s/releases/download/v1.0.0/serverkit-k8s-1.0.0.zip",
+      "sha256": "aa163f3c821a69cd7b41055407c9f2425998ff0d474957cfe5bb28b7f4547702",
+      "repo": "https://github.com/jhd3197/serverkit-k8s",
+      "homepage": "https://github.com/jhd3197/serverkit-k8s",
+      "featured": false,
+      "feature_score": 0
     },
     {
       "slug": "serverkit-tramo",
@@ -256,7 +279,7 @@
       "category": "deployment",
       "author": "ServerKit",
       "first_party": true,
-      "bundled": true,
+      "bundled": false,
       "permissions": [
         "docker",
         "shell",
@@ -265,21 +288,22 @@
       ],
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit",
+      "source": "https://github.com/jhd3197/serverkit-tramo/releases/download/v1.0.0/serverkit-tramo-1.0.0.zip",
+      "sha256": "1ee46b6db2be4e04add25ab7a705f4acd590a4358808c6c2035acb950fb03b0d",
+      "repo": "https://github.com/jhd3197/serverkit-tramo",
+      "homepage": "https://github.com/jhd3197/serverkit-tramo",
       "featured": true,
       "feature_score": 90
     },
     {
       "slug": "serverkit-analytics",
-      "display_name": "Web Analytics",
+      "display_name": "Analytics",
       "description": "Privacy-first, self-hosted web analytics for the sites this panel manages. A lightweight (<4 KB) cookieless JavaScript tracker and optional server-log ingestion feed a persistent time series stored on your own server, and nothing leaves the box. Visitor identity is a daily-rotating salted hash of IP+user-agent (raw IPs are never stored), DoNotTrack is honored, and there are no cookies, fingerprinting, or third-party calls. A real dashboard inside the panel shows visitors, pageviews, top pages, referrers, devices, and a live realtime counter, with one-click wiring into managed WordPress and nginx-proxied apps.",
       "version": "1.0.0",
       "category": "monitoring",
       "author": "ServerKit",
       "first_party": true,
-      "featured": true,
-      "feature_score": 88,
-      "bundled": true,
+      "bundled": false,
       "permissions": [
         "db",
         "network",
@@ -287,8 +311,12 @@
       ],
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit",
-      "logo": "assets/serverkit-analytics/logo.png"
+      "source": "https://github.com/jhd3197/serverkit-analytics/releases/download/v1.0.0/serverkit-analytics-1.0.0.zip",
+      "sha256": "9ed7a7dad6f78bca8da3abdb4f4279853ba0fe0c174e645b95d3594b70abc843",
+      "repo": "https://github.com/jhd3197/serverkit-analytics",
+      "homepage": "https://github.com/jhd3197/serverkit-analytics",
+      "featured": true,
+      "feature_score": 88
     },
     {
       "slug": "serverkit-faro",
