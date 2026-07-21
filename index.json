@@ -36,7 +36,8 @@
       ],
       "min_panel_version": null,
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit"
+      "repo": "https://github.com/jhd3197/ServerKit",
+      "logo": "assets/serverkit-cloud-provision/logo.png"
     },
     {
       "slug": "serverkit-cloudflare-ops",
@@ -54,7 +55,8 @@
       "max_panel_version": null,
       "repo": "https://github.com/jhd3197/ServerKit",
       "featured": true,
-      "feature_score": 70
+      "feature_score": 70,
+      "logo": "assets/serverkit-cloudflare-ops/logo.png"
     },
     {
       "slug": "serverkit-crowdsec",
@@ -75,7 +77,8 @@
       "repo": "https://github.com/jhd3197/serverkit-crowdsec",
       "homepage": "https://github.com/jhd3197/serverkit-crowdsec",
       "featured": false,
-      "feature_score": 0
+      "feature_score": 0,
+      "logo": "assets/serverkit-crowdsec/logo.png"
     },
     {
       "slug": "serverkit-dns-server",
@@ -97,7 +100,8 @@
       "repo": "https://github.com/jhd3197/serverkit-dns-server",
       "homepage": "https://github.com/jhd3197/serverkit-dns-server",
       "featured": false,
-      "feature_score": 0
+      "feature_score": 0,
+      "logo": "assets/serverkit-dns-server/logo.png"
     },
     {
       "slug": "serverkit-email",
@@ -115,7 +119,8 @@
       ],
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit"
+      "repo": "https://github.com/jhd3197/ServerKit",
+      "logo": "assets/serverkit-email/logo.png"
     },
     {
       "slug": "serverkit-ftp",
@@ -132,7 +137,8 @@
       ],
       "min_panel_version": null,
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit"
+      "repo": "https://github.com/jhd3197/ServerKit",
+      "logo": "assets/serverkit-ftp/logo.svg"
     },
     {
       "slug": "serverkit-git",
@@ -149,7 +155,8 @@
       ],
       "min_panel_version": null,
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit"
+      "repo": "https://github.com/jhd3197/ServerKit",
+      "logo": "assets/serverkit-git/logo.png"
     },
     {
       "slug": "serverkit-gpu",
@@ -170,7 +177,8 @@
       "repo": "https://github.com/jhd3197/serverkit-gpu",
       "homepage": "https://github.com/jhd3197/serverkit-gpu",
       "featured": true,
-      "feature_score": 60
+      "feature_score": 60,
+      "logo": "assets/serverkit-gpu/logo.png"
     },
     {
       "slug": "serverkit-mail",
@@ -194,7 +202,8 @@
       "repo": "https://github.com/jhd3197/serverkit-mail",
       "homepage": "https://github.com/jhd3197/serverkit-mail",
       "featured": false,
-      "feature_score": 0
+      "feature_score": 0,
+      "logo": "assets/serverkit-mail/logo.png"
     },
     {
       "slug": "serverkit-remote-access",
@@ -210,7 +219,8 @@
       ],
       "min_panel_version": null,
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit"
+      "repo": "https://github.com/jhd3197/ServerKit",
+      "logo": "assets/serverkit-remote-access/logo.png"
     },
     {
       "slug": "serverkit-status",
@@ -224,7 +234,8 @@
       "permissions": [],
       "min_panel_version": null,
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit"
+      "repo": "https://github.com/jhd3197/ServerKit",
+      "logo": "assets/serverkit-status/logo.png"
     },
     {
       "slug": "serverkit-wordpress",
@@ -246,7 +257,8 @@
       "max_panel_version": null,
       "repo": "https://github.com/jhd3197/ServerKit",
       "featured": true,
-      "feature_score": 80
+      "feature_score": 80,
+      "logo": "assets/serverkit-wordpress/logo.png"
     },
     {
       "slug": "serverkit-k8s",
@@ -269,7 +281,8 @@
       "repo": "https://github.com/jhd3197/serverkit-k8s",
       "homepage": "https://github.com/jhd3197/serverkit-k8s",
       "featured": false,
-      "feature_score": 0
+      "feature_score": 0,
+      "logo": "assets/serverkit-k8s/logo.png"
     },
     {
       "slug": "serverkit-tramo",
@@ -293,7 +306,8 @@
       "repo": "https://github.com/jhd3197/serverkit-tramo",
       "homepage": "https://github.com/jhd3197/serverkit-tramo",
       "featured": true,
-      "feature_score": 90
+      "feature_score": 90,
+      "logo": "assets/serverkit-tramo/logo.png"
     },
     {
       "slug": "serverkit-analytics",
@@ -316,7 +330,8 @@
       "repo": "https://github.com/jhd3197/serverkit-analytics",
       "homepage": "https://github.com/jhd3197/serverkit-analytics",
       "featured": true,
-      "feature_score": 88
+      "feature_score": 88,
+      "logo": "assets/serverkit-analytics/logo.png"
     },
     {
       "slug": "serverkit-faro",
@@ -335,7 +350,8 @@
       "repo": "https://github.com/jhd3197/serverkit-faro",
       "homepage": "https://github.com/jhd3197/serverkit-faro",
       "featured": true,
-      "feature_score": 100
+      "feature_score": 100,
+      "logo": "assets/serverkit-faro/logo.png"
     }
   ]
 }
