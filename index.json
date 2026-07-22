@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated": "2026-07-20",
+  "updated": "2026-07-22",
   "extensions": [
     {
       "slug": "serverkit-gui",
@@ -352,6 +352,25 @@
       "featured": true,
       "feature_score": 100,
       "logo": "assets/serverkit-faro/logo.png"
+    },
+    {
+      "slug": "serverkit-redis",
+      "display_name": "Redis Manager",
+      "description": "Redis server management with key browser, CLI terminal, and real-time monitoring",
+      "version": "1.0.0",
+      "category": "utility",
+      "author": "Paong",
+      "first_party": false,
+      "permissions": [
+        "shell"
+      ],
+      "min_panel_version": "1.7.0",
+      "max_panel_version": null,
+      "source": "https://github.com/farhanturu/serverkit-redis/releases/download/v1.0.0/serverkit-redis-1.0.0.zip",
+      "sha256": "5ed212b08fff8bd9ad857d048d1e19f89dacbabbbeab1523f316d1252c16422a",
+      "repo": "https://github.com/farhanturu/serverkit-redis",
+      "homepage": "https://github.com/farhanturu/serverkit-redis",
+      "logo": "assets/serverkit-redis/logo.svg"
     }
   ]
 }
