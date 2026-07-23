@@ -82,6 +82,11 @@ message to push without releasing. Frontend tests run automatically when
 - `version` ← the tag (minus `v`), `updated` ← today
 - `source` ← `https://github.com/<owner>/<repo>/releases/download/<tag>/<zip>`
 - `sha256` ← digest of the **downloaded release asset**
+- `review` ← carried over from the existing entry **only** when the stamp's
+  sha256 matches the new artifact byte-for-byte; a fresh build produces a new
+  hash, so a stale review stamp is dropped instead of silently vouching for
+  code nobody reviewed. Re-review (read the diff, then re-stamp with the new
+  hash) on every version bump.
 - `bundled: false`, `repo`, `homepage`, `permissions`,
   `min_panel_version` ← from `plugin.json`
 

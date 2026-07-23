@@ -1,6 +1,6 @@
 {
-  "schema_version": 2,
-  "updated": "2026-07-20",
+  "schema_version": 3,
+  "updated": "2026-07-23",
   "extensions": [
     {
       "slug": "serverkit-gui",
@@ -73,7 +73,7 @@
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
       "source": "https://github.com/jhd3197/serverkit-crowdsec/releases/download/v1.0.0/serverkit-crowdsec-1.0.0.zip",
-      "sha256": "4d92982a55a0ec0b5d7e34012b0d8b0b5655247d49b5dcaf075288bed664cabc",
+      "sha256": "2f5e58c6a97627213d256f6bf59d003e1842801bc6941c5998f4bb722d4d1c00",
       "repo": "https://github.com/jhd3197/serverkit-crowdsec",
       "homepage": "https://github.com/jhd3197/serverkit-crowdsec",
       "featured": false,
@@ -96,7 +96,7 @@
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
       "source": "https://github.com/jhd3197/serverkit-dns-server/releases/download/v1.0.0/serverkit-dns-server-1.0.0.zip",
-      "sha256": "e17bbc19d25a01a578a085129e786d478bea7af53dfd425f130b753da09d75d3",
+      "sha256": "62d27b90f4f9357f1ba71e5e4416d9bc336e8b88c9da71ace3e830415f5564d0",
       "repo": "https://github.com/jhd3197/serverkit-dns-server",
       "homepage": "https://github.com/jhd3197/serverkit-dns-server",
       "featured": false,
@@ -173,7 +173,7 @@
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
       "source": "https://github.com/jhd3197/serverkit-gpu/releases/download/v1.0.0/serverkit-gpu-1.0.0.zip",
-      "sha256": "c861dafadd3e5d5a72836e7d4248b18143cea1aea8c45d32d5211c83f28f9985",
+      "sha256": "3872d71f313dda7554ed2e4c6622c4a4d51c19d73f0cd30c465c3e1ea57f77ca",
       "repo": "https://github.com/jhd3197/serverkit-gpu",
       "homepage": "https://github.com/jhd3197/serverkit-gpu",
       "featured": true,
@@ -198,7 +198,7 @@
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
       "source": "https://github.com/jhd3197/serverkit-mail/releases/download/v1.0.0/serverkit-mail-1.0.0.zip",
-      "sha256": "0132031e6b784bde5ebb6c70b5e0b15e085ed8a51f8c0fc65c50540824fcf294",
+      "sha256": "088b7e213fa72ccfa00abb3134a5ce06cab9670d9662f584a79699a3fe871611",
       "repo": "https://github.com/jhd3197/serverkit-mail",
       "homepage": "https://github.com/jhd3197/serverkit-mail",
       "featured": false,
@@ -277,7 +277,7 @@
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
       "source": "https://github.com/jhd3197/serverkit-k8s/releases/download/v1.0.0/serverkit-k8s-1.0.0.zip",
-      "sha256": "aa163f3c821a69cd7b41055407c9f2425998ff0d474957cfe5bb28b7f4547702",
+      "sha256": "ea1958c8dbc075757729d4ecf6c20f12c635542a8033bb21b886c0fe841ce709",
       "repo": "https://github.com/jhd3197/serverkit-k8s",
       "homepage": "https://github.com/jhd3197/serverkit-k8s",
       "featured": false,
@@ -302,7 +302,7 @@
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
       "source": "https://github.com/jhd3197/serverkit-tramo/releases/download/v1.0.0/serverkit-tramo-1.0.0.zip",
-      "sha256": "1ee46b6db2be4e04add25ab7a705f4acd590a4358808c6c2035acb950fb03b0d",
+      "sha256": "1791eaf6ae786833002eb897e870384808cbe9ee6def6a1c1aaa1272128d8231",
       "repo": "https://github.com/jhd3197/serverkit-tramo",
       "homepage": "https://github.com/jhd3197/serverkit-tramo",
       "featured": true,
@@ -326,7 +326,7 @@
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
       "source": "https://github.com/jhd3197/serverkit-analytics/releases/download/v1.0.0/serverkit-analytics-1.0.0.zip",
-      "sha256": "9ed7a7dad6f78bca8da3abdb4f4279853ba0fe0c174e645b95d3594b70abc843",
+      "sha256": "54a7b6016884f888f36c707649f565b59dc9d9486f1ecaef39d0024aca407f99",
       "repo": "https://github.com/jhd3197/serverkit-analytics",
       "homepage": "https://github.com/jhd3197/serverkit-analytics",
       "featured": true,
@@ -352,6 +352,32 @@
       "featured": true,
       "feature_score": 100,
       "logo": "assets/serverkit-faro/logo.png"
+    },
+    {
+      "slug": "serverkit-redis",
+      "display_name": "Redis Manager",
+      "description": "Redis server management with a key browser, key inspector, guarded CLI terminal, config viewer, slow log, and real-time server stats. Community extension (author: Paong); the listed release is built from the jhd3197 fork, which carries security hardening on top of the original.",
+      "version": "1.0.1",
+      "category": "utility",
+      "author": "Paong",
+      "first_party": false,
+      "permissions": [
+        "shell"
+      ],
+      "min_panel_version": "1.7.0",
+      "max_panel_version": null,
+      "source": "https://github.com/jhd3197/serverkit-redis/releases/download/v1.0.1/serverkit-redis-1.0.1.zip",
+      "sha256": "b1e8f6bfb4a15e5b86d40fd2e780f0b3ccd1bc38946ffdcf720e5810966f6b1c",
+      "review": {
+        "reviewer": "jhd3197",
+        "date": "2026-07-23",
+        "sha256": "b1e8f6bfb4a15e5b86d40fd2e780f0b3ccd1bc38946ffdcf720e5810966f6b1c",
+        "commit": "6d709f2",
+        "notes": "Full-file audit of v1.0.0 plus the fork's hardening diff. Fixed before stamping: admin-only RBAC on all routes (was any authenticated user), first-token command blocklist closing the CONFIG SET/EVAL/MODULE/REPLICAOF path to host code execution, slowlog input validation, and a working frontend bundle. Fixes offered upstream as farhanturu/serverkit-redis#1."
+      },
+      "repo": "https://github.com/jhd3197/serverkit-redis",
+      "homepage": "https://github.com/jhd3197/serverkit-redis",
+      "logo": "assets/serverkit-redis/logo.svg"
     }
   ]
 }

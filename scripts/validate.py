@@ -14,7 +14,12 @@ Schema v2 (additive) adds three optional fields:
   - repo    — https URL of the extension's source repository
   - bundled — true for builtin extensions shipped inside the panel; these
               are catalog listings, so `source`/`sha256` are optional.
-v1 entries stay valid unchanged.
+Schema v3 (additive) adds one optional field:
+  - review  — hash-bound review stamp: {reviewer, date, sha256, ...} asserting
+              that `reviewer` inspected the exact artifact `review.sha256`
+              names. review.sha256 must equal the entry's own sha256, so any
+              change to the released zip invalidates the stamp.
+v1/v2 entries stay valid unchanged.
 """
 import json
 import re
@@ -35,8 +40,8 @@ CATEGORIES = {'ai', 'monitoring', 'networking', 'security', 'deployment', 'integ
 KNOWN_FIELDS = {
     'slug', 'display_name', 'description', 'version', 'category', 'author',
     'first_party', 'bundled', 'permissions', 'min_panel_version',
-    'max_panel_version', 'source', 'sha256', 'repo', 'logo', 'homepage',
-    'icon', 'screenshots', 'featured', 'feature_score',
+    'max_panel_version', 'source', 'sha256', 'review', 'repo', 'logo',
+    'homepage', 'icon', 'screenshots', 'featured', 'feature_score',
 }
 SLUG_RE = re.compile(r'^[a-z0-9]+(-[a-z0-9]+)*$')
 SEMVER_RE = re.compile(r'^\d+\.\d+(\.\d+)?([.-][0-9A-Za-z.-]+)?$')
@@ -98,6 +103,31 @@ def check_entry(i, e):
         warn(f"{where}: no sha256 — installs skip checksum verification "
              f"(strongly recommended; see README)")
 
+    review = e.get('review')
+    if review is not None:
+        if not isinstance(review, dict):
+            err(f"{where}: review must be an object "
+                f"({{reviewer, date, sha256, ...}})")
+        else:
+            if not review.get('reviewer') or not isinstance(review.get('reviewer'), str):
+                err(f"{where}: review.reviewer is required (GitHub handle)")
+            rdate = review.get('date')
+            if not rdate or not DATE_RE.match(str(rdate)):
+                err(f"{where}: review.date is required (YYYY-MM-DD)")
+            rsha = review.get('sha256')
+            if not rsha or not SHA256_RE.match(str(rsha)):
+                err(f"{where}: review.sha256 is required (64 lowercase hex — "
+                    f"the reviewed artifact)")
+            elif sha is None:
+                err(f"{where}: review.sha256 present but the entry has no "
+                    f"sha256 — pin the artifact hash first")
+            elif rsha != sha:
+                err(f"{where}: review.sha256 does not match the entry sha256 — "
+                    f"the stamp is for a different artifact (stale review?)")
+    elif not e.get('first_party') and not bundled:
+        warn(f"{where}: community entry without a review stamp — the panel "
+             f"marks it 'unreviewed' and asks installers to acknowledge the risk")
+
     if 'bundled' in e and not isinstance(e['bundled'], bool):
         err(f"{where}: bundled must be a boolean")
 
@@ -155,8 +185,8 @@ def main():
     except json.JSONDecodeError as exc:
         print(f"✘ index.json is not valid JSON: {exc}"); return 1
 
-    if data.get('schema_version') not in (1, 2):
-        err(f"schema_version must be 1 or 2 (got {data.get('schema_version')!r})")
+    if data.get('schema_version') not in (1, 2, 3):
+        err(f"schema_version must be 1, 2 or 3 (got {data.get('schema_version')!r})")
     if not DATE_RE.match(str(data.get('updated', ''))):
         err(f"updated must be YYYY-MM-DD (got {data.get('updated')!r})")
     exts = data.get('extensions')

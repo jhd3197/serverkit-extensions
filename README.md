@@ -33,6 +33,7 @@ release.
 | [Kubernetes](https://github.com/jhd3197/serverkit-k8s) | deployment | Installable | Manage remote clusters via kubectl: nodes, workloads, pods with live logs, plus scale/restart/delete/apply. |
 | [Mail Server](https://github.com/jhd3197/serverkit-mail) | integration | Installable | Self-hosted mail via Stalwart with a deliverability preflight (PTR, port-25, RBL) and brute-force jails. |
 | [Remote Access](https://github.com/jhd3197/ServerKit) | integration | Bundled | WireGuard tunnels between paired agents to expose NAT'd home services through an edge server. |
+| [Redis Manager](https://github.com/jhd3197/serverkit-redis) | utility | Installable | Community: Redis key browser, guarded CLI terminal, config viewer, slow log, and live stats (maintained via the jhd3197 fork). |
 | [ServerKit Agent GUI (Beta)](https://github.com/jhd3197/serverkit-gui) | monitoring | Installable | Agent-powered desktop view: streams live Windows/Linux screenshots for managed servers. |
 | [Status Pages](https://github.com/jhd3197/ServerKit) | monitoring | Bundled | Public status pages backed by uptime monitors (management UI in the Observability group). |
 | [WordPress](https://github.com/jhd3197/ServerKit) | integration | Bundled | Full WordPress suite: provisioning, plugins, environments, updates, security, and vulnerability scanning (flagship). |
@@ -89,6 +90,17 @@ release.
 > `node scripts/export-registry-entries.mjs` in the
 > [ServerKit](https://github.com/jhd3197/ServerKit) checkout and paste it in.
 
+> **Schema v3.** Adds one optional field: `review` — a **hash-bound review
+> stamp** (`{reviewer, date, sha256, commit?, notes?}`) asserting that
+> `reviewer` inspected the exact artifact `review.sha256` names. The stamp is
+> bound to the artifact, not the version number: `review.sha256` must equal the
+> entry's own `sha256` (`validate.py` errors on mismatch), so any change to the
+> released zip — a rebuild, a retagged release, a tampered asset — invalidates
+> the review automatically. The panel derives three trust levels from this:
+> `first_party` (by ServerKit), `reviewed` (stamp matches the pinned hash), and
+> `unreviewed` (everything else). Unreviewed community entries still install,
+> but the panel warns and asks the admin to acknowledge the risk first.
+
 Validate before pushing:
 
 ```bash
@@ -109,6 +121,11 @@ merge.
 - **Permissions honesty** — declared `permissions` match what the code actually
   uses (`docker|filesystem|shell|network|db`, or `agent.command:*`).
 - **Checksum** — `sha256` present and matching the release asset.
+- **Review stamp (community entries)** — after actually reading the code of the
+  exact artifact being listed, add `review` with your handle, the date, and the
+  artifact's sha256 (copied from the entry, never retyped). A version bump
+  needs a fresh review: the new zip gets a new hash, and the old stamp no
+  longer matches (`validate.py` fails the PR if it does).
 - **License** — a real OSS license in the extension repo.
 - **Compat** — `min_panel_version` reflects the oldest panel actually tested.
 - **Brand-neutral** — no competitor names in names/descriptions, and no
@@ -122,7 +139,7 @@ merge.
 |---|---|
 | `index.json` | The registry. The only file panels read. |
 | `RELEASING.md` | The automated release pipeline (CI builds the zip, cuts the release, upserts `index.json`). |
-| `schema/index.schema.json` | JSON Schema for `index.json` (schema_version 1 or 2). |
+| `schema/index.schema.json` | JSON Schema for `index.json` (schema_version 1, 2 or 3). |
 | `assets/<slug>/` | Extension artwork (logo.svg / logo.png), served via serverkit.ai. |
 | `scripts/validate.py` | Dependency-free rule validator (run locally + CI). |
 | `scripts/verify_sources.py` | Downloads every source, checks `sha256`, HEAD-checks art. |
