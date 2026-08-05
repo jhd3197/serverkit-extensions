@@ -36,7 +36,7 @@ except AttributeError:
 ROOT = Path(__file__).resolve().parent.parent
 INDEX = ROOT / 'index.json'
 
-CATEGORIES = {'ai', 'monitoring', 'networking', 'security', 'deployment', 'integration', 'ui', 'utility'}
+CATEGORIES = {'ai', 'games', 'monitoring', 'networking', 'security', 'deployment', 'integration', 'ui', 'utility'}
 KNOWN_FIELDS = {
     'slug', 'display_name', 'description', 'version', 'category', 'author',
     'first_party', 'bundled', 'permissions', 'min_panel_version',
