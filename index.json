@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "updated": "2026-08-05",
+  "updated": "2026-08-15",
   "extensions": [
     {
       "slug": "serverkit-gui",
@@ -241,7 +241,7 @@
       "slug": "serverkit-wordpress",
       "display_name": "WordPress",
       "description": "The full WordPress suite: one-click site provisioning, a curated plugin library, environments and promote pipelines, update runs, security hardening, vulnerability scanning, analytics and reports. Offered during onboarding; uninstall it to slim the panel.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "category": "integration",
       "author": "ServerKit",
       "first_party": true,
@@ -255,8 +255,8 @@
       ],
       "min_panel_version": "1.7.81",
       "max_panel_version": null,
-      "source": "https://github.com/jhd3197/serverkit-wordpress/releases/download/v1.0.0/serverkit-wordpress-1.0.0.zip",
-      "sha256": "fd5f0ab29016e48d0d921f209e61b791ed19414a6379d2082e6ef3781e567eea",
+      "source": "https://github.com/jhd3197/serverkit-wordpress/releases/download/v1.0.1/serverkit-wordpress-1.0.1.zip",
+      "sha256": "2b7a9530925d4888e2a58ba0be8497d02e7ac6d31e6deec38806f311eaa179d5",
       "repo": "https://github.com/jhd3197/serverkit-wordpress",
       "homepage": "https://github.com/jhd3197/serverkit-wordpress",
       "featured": true,
