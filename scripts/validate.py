@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate index.json against the registry rules (schema_version 1 or 2).
+"""Validate index.json against the registry rules (schema_version 1, 2 or 3).
 
 Dependency-free on purpose so contributors can run it with any Python 3:
 
@@ -14,12 +14,21 @@ Schema v2 (additive) adds three optional fields:
   - repo    — https URL of the extension's source repository
   - bundled — true for builtin extensions shipped inside the panel; these
               are catalog listings, so `source`/`sha256` are optional.
-Schema v3 (additive) adds one optional field:
+Schema v3 (additive) adds three optional fields:
   - review  — hash-bound review stamp: {reviewer, date, sha256, ...} asserting
               that `reviewer` inspected the exact artifact `review.sha256`
               names. review.sha256 must equal the entry's own sha256, so any
               change to the released zip invalidates the stamp.
+  - signature / publisher_key_id — base64 ed25519 detached signature over the
+              release zip, plus the id of the pinned publisher key that must
+              verify it. The panel reads both (signing_service.verify_for_install);
+              a first_party entry without them costs an install-consent prompt.
 v1/v2 entries stay valid unchanged.
+
+The accepted field list is READ FROM schema/index.schema.json rather than
+duplicated here, so the published contract and this validator cannot drift —
+that drift is what previously left `signature` undocumented in the schema and
+absent from the validator's field list at the same time.
 """
 import json
 import re
@@ -35,13 +44,17 @@ except AttributeError:
 
 ROOT = Path(__file__).resolve().parent.parent
 INDEX = ROOT / 'index.json'
+SCHEMA = ROOT / 'schema' / 'index.schema.json'
 
 CATEGORIES = {'ai', 'games', 'monitoring', 'networking', 'security', 'deployment', 'integration', 'ui', 'utility'}
-KNOWN_FIELDS = {
+# Used only when the schema file cannot be read; the schema is the source of
+# truth (see _known_fields). Keep in sync as a last resort, not as the contract.
+_FALLBACK_FIELDS = {
     'slug', 'display_name', 'description', 'version', 'category', 'author',
     'first_party', 'bundled', 'permissions', 'min_panel_version',
-    'max_panel_version', 'source', 'sha256', 'review', 'repo', 'logo',
-    'homepage', 'icon', 'screenshots', 'featured', 'feature_score',
+    'max_panel_version', 'source', 'sha256', 'signature', 'publisher_key_id',
+    'review', 'repo', 'logo', 'homepage', 'icon', 'screenshots', 'featured',
+    'feature_score',
 }
 SLUG_RE = re.compile(r'^[a-z0-9]+(-[a-z0-9]+)*$')
 SEMVER_RE = re.compile(r'^\d+\.\d+(\.\d+)?([.-][0-9A-Za-z.-]+)?$')
@@ -61,6 +74,29 @@ def err(msg):
 
 def warn(msg):
     warnings.append(msg)
+
+
+def _known_fields():
+    """Entry fields the published schema documents.
+
+    Read from schema/index.schema.json so the contract contributors are told
+    to follow and the check that enforces it are the same list. Still
+    dependency-free — this reads the property names, it does not run a JSON
+    Schema engine. An unreadable schema degrades to the frozen fallback with a
+    warning rather than declaring every field unknown.
+    """
+    try:
+        with open(SCHEMA, 'r', encoding='utf-8') as f:
+            props = json.load(f)['$defs']['extension']['properties']
+        if props:
+            return set(props)
+        warn(f"{SCHEMA.name}: extension.properties is empty; using the fallback field list")
+    except Exception as e:  # unreadable, malformed, or restructured
+        warn(f"{SCHEMA.name} could not be read ({e}); using the fallback field list")
+    return set(_FALLBACK_FIELDS)
+
+
+KNOWN_FIELDS = _known_fields()
 
 
 def check_entry(i, e):
@@ -159,6 +195,20 @@ def check_entry(i, e):
     if 'first_party' in e and not isinstance(e['first_party'], bool):
         err(f"{where}: first_party must be a boolean")
 
+    # A signature the panel cannot attribute to a key verifies nothing, and a
+    # key id with no signature verifies nothing either. Both or neither.
+    has_sig = bool(e.get('signature'))
+    has_key = bool(e.get('publisher_key_id'))
+    if has_sig and not has_key:
+        err(f"{where}: signature is set but publisher_key_id is not — the "
+            f"panel needs the key id to know which pinned key must verify it")
+    if has_key and not has_sig:
+        err(f"{where}: publisher_key_id is set but signature is not — nothing "
+            f"for that key to verify")
+    if has_sig and not e.get('sha256'):
+        err(f"{where}: signature is set but sha256 is not — the signature "
+            f"covers the artifact, so the artifact must also be pinned")
+
     desc = e.get('description')
     if isinstance(desc, str) and DASH_RE.search(desc):
         err(f"{where}: description contains an em/en dash — use a regular "
@@ -172,7 +222,9 @@ def check_entry(i, e):
 
     for k in e:
         if k not in KNOWN_FIELDS:
-            warn(f"{where}: unknown field '{k}' (ignored by the panel)")
+            warn(f"{where}: field '{k}' is not in schema/index.schema.json. "
+                 f"The panel drops fields it does not register, so either add "
+                 f"it to the schema or remove it")
 
     return slug
 

@@ -159,6 +159,25 @@
       "logo": "assets/serverkit-git/logo.png"
     },
     {
+      "slug": "serverkit-localkit",
+      "display_name": "LocalKit Bridge",
+      "description": "API surface for the LocalKit desktop app: pair with an API key, list and create WordPress sites, and push or pull wp-content code and database dumps between local and server sites.",
+      "version": "0.2.0",
+      "category": "integration",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": true,
+      "permissions": [
+        "filesystem",
+        "network",
+        "docker",
+        "database"
+      ],
+      "min_panel_version": "1.7.0",
+      "max_panel_version": null,
+      "repo": "https://github.com/jhd3197/ServerKit"
+    },
+    {
       "slug": "serverkit-gpu",
       "display_name": "GPU Monitor",
       "description": "Live NVIDIA GPU metrics covering utilization, memory, temperature, power and fan, for servers with a GPU. Adds a GPU Monitor page; the sidebar entry appears only on hosts where nvidia-smi is available.",
