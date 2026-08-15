@@ -8,12 +8,21 @@
 # verify-sources (gating on PRs): every listed source must resolve to a
 # downloadable zip, and pinned sha256 digests must match. A listing whose
 # download is broken or tampered must not merge.
+#
+# latest-releases (scheduled): catches the index falling behind a shipped
+# release. An extension's release pipeline skips its registry upsert when that
+# repo has no REGISTRY_TOKEN, and skips it with a WARNING on an otherwise green
+# run -- so nothing goes red while the Marketplace keeps serving the old
+# version. Deliberately not gating on PRs: an unrelated PR should not fail
+# because some other extension shipped an hour ago.
 name: Validate registry
 
 on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    - cron: '17 6 * * 1'
   workflow_dispatch:
 
 jobs:
@@ -34,3 +43,15 @@ jobs:
       - uses: actions/checkout@v4
       - name: Resolve, download, and hash every listed source
         run: python3 scripts/verify_sources.py
+
+  latest-releases:
+    name: index matches each repo's latest release
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compare indexed versions against published releases
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 scripts/check_latest_releases.py

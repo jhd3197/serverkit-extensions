@@ -7,7 +7,7 @@
   "properties": {
     "schema_version": {
       "enum": [1, 2, 3],
-      "description": "1 = original; 2 adds logo/repo/bundled; 3 adds review (all additive, v1/v2 entries stay valid)."
+      "description": "1 = original; 2 adds logo/repo/bundled; 3 adds review plus signature/publisher_key_id (all additive, v1/v2 entries stay valid)."
     },
     "updated": {
       "type": "string",
@@ -81,6 +81,30 @@
             { "type": "null" }
           ],
           "description": "sha256 of the exact zip `source` resolves to. Enforced when present."
+        },
+        "signature": {
+          "anyOf": [
+            { "type": "string", "minLength": 1 },
+            { "type": "null" }
+          ],
+          "description": "Schema v3: base64 ed25519 detached signature over the exact zip `source` resolves to. Verified against the pinned publisher key named by `publisher_key_id`. Absent => the panel treats the entry as unsigned; for first_party entries that costs an explicit install-consent prompt (see the panel's signing_service.verify_for_install)."
+        },
+        "publisher_key_id": {
+          "anyOf": [
+            { "type": "string", "minLength": 1 },
+            { "type": "null" }
+          ],
+          "description": "Schema v3: id of the publisher key that must verify `signature` (e.g. 'serverkit-official'). Must name a key the panel pins in app/data/extension_signing_keys.json, or one the operator added via SERVERKIT_TRUSTED_EXTENSION_KEYS; an unpinned id downgrades to a consent prompt rather than silently passing."
+        },
+        "featured": {
+          "type": "boolean",
+          "description": "Surface this entry in the Marketplace's featured rail."
+        },
+        "feature_score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Ranking weight within the featured rail (higher sorts first). Absent is treated as 0 by the panel."
         },
         "review": {
           "type": "object",

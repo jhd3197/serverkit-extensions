@@ -34,6 +34,14 @@ The registry's `sha256` is always computed from the **published asset**,
 never from a local build, so the checksum panels verify against can never
 drift from what they download.
 
+> **Known gap in `update-registry.mjs`:** it rebuilds the entry from
+> `plugin.json` and assigns it with `list[i] = entry`, so any field the script
+> does not emit is dropped on upsert — `logo` is the one that bites, since it
+> is a registry-side path (`assets/<slug>/<file>`) with no `plugin.json`
+> equivalent. Until the script merges instead of replacing, check the entry's
+> `logo` survived after an automated sync, or edit the changed fields by hand
+> (`version`, `source`, `sha256`) as this repo's own history does.
+
 ## One-time setup (per extension repo)
 
 1. **Copy five files** from the reference repo
@@ -53,6 +61,19 @@ drift from what they download.
    registry job uses it to check out this repo and push the entry update.
    Without the secret the release still ships — only the registry sync skips
    (with a warning), and you update `index.json` by PR instead.
+
+   > **This is the step that actually goes wrong.** The skip is a workflow
+   > *warning*, so the release run still finishes green: the zip ships, the
+   > GitHub release appears, and the registry keeps serving the previous
+   > version with nothing anywhere showing red. `serverkit-wordpress` sat in
+   > exactly that state — v1.0.1 published with a bug fix, `index.json`
+   > pointing at v1.0.0. After a release, either confirm the registry job ran
+   > or check the entry. The scheduled `latest-releases` job in this repo's
+   > `validate.yml` catches the drift weekly, but it is a net, not a substitute.
+
+   > **Verifying a repo has the secret:** `gh secret list -R jhd3197/<repo>`,
+   > or grep a past release run for the skip warning:
+   > `gh run view <id> -R jhd3197/<repo> --log | grep REGISTRY_TOKEN`.
 
 3. Make sure `frontend/package-lock.json` is committed — CI builds with
    `npm ci`.
