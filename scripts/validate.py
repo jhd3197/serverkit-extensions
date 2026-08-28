@@ -208,6 +208,9 @@ def check_entry(i, e):
     if has_sig and not e.get('sha256'):
         err(f"{where}: signature is set but sha256 is not — the signature "
             f"covers the artifact, so the artifact must also be pinned")
+    if e.get('first_party') is True and not bundled and not (has_sig and has_key):
+        err(f"{where}: downloadable first-party releases must carry a "
+            f"signature and publisher_key_id")
 
     desc = e.get('description')
     if isinstance(desc, str) and DASH_RE.search(desc):

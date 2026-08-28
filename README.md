@@ -143,3 +143,19 @@ merge.
 | `assets/<slug>/` | Extension artwork (logo.svg / logo.png), served via serverkit.ai. |
 | `scripts/validate.py` | Dependency-free rule validator (run locally + CI). |
 | `scripts/verify_sources.py` | Downloads every source, checks `sha256`, HEAD-checks art. |
+## First-party release signing
+
+The registry is fail-closed for downloadable first-party releases: every entry
+must pin the artifact SHA-256 and carry an Ed25519 signature made by a key in
+`trusted-publishers.json`. CI downloads the release again and verifies both.
+
+Maintainers sign the exact published bytes with a private key that remains
+outside this repository:
+
+```bash
+node scripts/sign_first_party.mjs sign --key <safe-path>/serverkit-official.signing-key.json
+node scripts/sign_first_party.mjs verify
+```
+
+Passing `--out-dir <dir>` also writes one `.minisig` file per release zip for
+upload beside the GitHub release asset. Never commit a signing key.

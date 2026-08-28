@@ -36,13 +36,18 @@ jobs:
         run: python3 scripts/validate.py
 
   verify-sources:
-    name: sources downloadable + sha256 match
+    name: sources, sha256, and first-party signatures
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Resolve, download, and hash every listed source
         run: python3 scripts/verify_sources.py
+      - name: Verify downloadable first-party signatures
+        run: node scripts/sign_first_party.mjs verify
 
   latest-releases:
     name: index matches each repo's latest release
