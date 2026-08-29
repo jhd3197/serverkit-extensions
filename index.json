@@ -396,6 +396,32 @@
       "publisher_key_id": "serverkit-official"
     },
     {
+      "slug": "serverkit-redis",
+      "display_name": "Redis Manager",
+      "description": "Redis server management with a key browser, key inspector, guarded CLI terminal, config viewer, slow log, and real-time server stats. Community extension (author: Paong); the listed release is built from the jhd3197 fork, which carries security hardening on top of the original.",
+      "version": "1.0.1",
+      "category": "utility",
+      "author": "Paong",
+      "first_party": false,
+      "permissions": [
+        "shell"
+      ],
+      "min_panel_version": "1.7.0",
+      "max_panel_version": null,
+      "source": "https://github.com/jhd3197/serverkit-redis/releases/download/v1.0.1/serverkit-redis-1.0.1.zip",
+      "sha256": "b1e8f6bfb4a15e5b86d40fd2e780f0b3ccd1bc38946ffdcf720e5810966f6b1c",
+      "review": {
+        "reviewer": "jhd3197",
+        "date": "2026-07-23",
+        "sha256": "b1e8f6bfb4a15e5b86d40fd2e780f0b3ccd1bc38946ffdcf720e5810966f6b1c",
+        "commit": "6d709f2",
+        "notes": "Full-file audit of v1.0.0 plus the fork's hardening diff. Fixed before stamping: admin-only RBAC on all routes (was any authenticated user), first-token command blocklist closing the CONFIG SET/EVAL/MODULE/REPLICAOF path to host code execution, slowlog input validation, and a working frontend bundle. Fixes offered upstream as farhanturu/serverkit-redis#1."
+      },
+      "repo": "https://github.com/jhd3197/serverkit-redis",
+      "homepage": "https://github.com/jhd3197/serverkit-redis",
+      "logo": "assets/serverkit-redis/logo.svg"
+    },
+    {
       "slug": "serverkit-minecraft",
       "display_name": "Minecraft Server",
       "description": "Run a Minecraft server for your friends in a few clicks: Java (Vanilla/Paper/Fabric/Forge) and Bedrock, on the standard itzg community images. Live console (RCON), players, save-aware backups, scheduled restarts with in-game warnings, and a 'Share with friends' card showing exactly what to paste into the game client. First vertical of the ServerKit game-server family.",
