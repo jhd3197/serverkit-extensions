@@ -409,13 +409,13 @@
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
       "source": "https://github.com/jhd3197/serverkit-redis/releases/download/v1.0.1/serverkit-redis-1.0.1.zip",
-      "sha256": "b1e8f6bfb4a15e5b86d40fd2e780f0b3ccd1bc38946ffdcf720e5810966f6b1c",
+      "sha256": "c4c369332b37fb60b7c3a60841437b7791ddc55b089100ec492f4a8487baa2bd",
       "review": {
         "reviewer": "jhd3197",
-        "date": "2026-07-23",
-        "sha256": "b1e8f6bfb4a15e5b86d40fd2e780f0b3ccd1bc38946ffdcf720e5810966f6b1c",
-        "commit": "6d709f2",
-        "notes": "Full-file audit of v1.0.0 plus the fork's hardening diff. Fixed before stamping: admin-only RBAC on all routes (was any authenticated user), first-token command blocklist closing the CONFIG SET/EVAL/MODULE/REPLICAOF path to host code execution, slowlog input validation, and a working frontend bundle. Fixes offered upstream as farhanturu/serverkit-redis#1."
+        "date": "2026-08-29",
+        "sha256": "c4c369332b37fb60b7c3a60841437b7791ddc55b089100ec492f4a8487baa2bd",
+        "commit": "3b9774d",
+        "notes": "Full-file audit of v1.0.0 plus the fork's hardening diff. Fixed before stamping: admin-only RBAC on all routes (was any authenticated user), first-token command blocklist closing the CONFIG SET/EVAL/MODULE/REPLICAOF path to host code execution, slowlog input validation, and a working frontend bundle. Fixes offered upstream as farhanturu/serverkit-redis#1. Re-pinned 2026-08-29: the v1.0.1 asset was rebuilt on 2026-08-20 with the fork's own i18n commits (d326b9e, 3b9774d) on top of the reviewed 6d709f2; no third-party code changed."
       },
       "repo": "https://github.com/jhd3197/serverkit-redis",
       "homepage": "https://github.com/jhd3197/serverkit-redis",
