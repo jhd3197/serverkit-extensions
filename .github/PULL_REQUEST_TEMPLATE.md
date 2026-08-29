@@ -13,6 +13,8 @@
       plus `backend/` and/or `frontend/`)
 - [ ] `sha256` is the digest of that exact asset
       (`sha256sum my-extension-x.y.z.zip`)
+- [ ] Downloadable first-party entries include `signature` and
+      `publisher_key_id`, and `node scripts/sign_first_party.mjs verify` passes
 - [ ] Declared `permissions` match what the code actually uses — over-broad or
       undeclared permissions are rejected
 - [ ] `min_panel_version` reflects the oldest panel actually tested

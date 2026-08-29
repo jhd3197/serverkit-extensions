@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "updated": "2026-08-15",
+  "updated": "2026-08-28",
   "extensions": [
     {
       "slug": "serverkit-gui",
@@ -20,7 +20,9 @@
       "sha256": "432d31396075f8e72921d1c19564e1a819d7fdd674b8d73349e0c13feb51a5f5",
       "homepage": "https://github.com/jhd3197/serverkit-gui",
       "repo": "https://github.com/jhd3197/serverkit-gui",
-      "logo": "assets/serverkit-gui/logo.svg"
+      "logo": "assets/serverkit-gui/logo.svg",
+      "signature": "RUSisf2r8uF4y69x4uD1hK2NC9RcJkB+LvogtQikyZopu0EYj5IZa0zsIRicPrdjNYd+/U/zzs7H9wPMZOLZk+1cHdBPqTTsVgY=",
+      "publisher_key_id": "serverkit-official"
     },
     {
       "slug": "serverkit-cloud-provision",
@@ -78,7 +80,9 @@
       "homepage": "https://github.com/jhd3197/serverkit-crowdsec",
       "featured": false,
       "feature_score": 0,
-      "logo": "assets/serverkit-crowdsec/logo.png"
+      "logo": "assets/serverkit-crowdsec/logo.png",
+      "signature": "RUSisf2r8uF4y2Tefhv20k7/rrVaL4G5RTKLOpGWAuK8O8FTEp77to4eflBymtdP+OVEqEeXxSKRrcLzyWY4HUmf5H5pYWTUoQU=",
+      "publisher_key_id": "serverkit-official"
     },
     {
       "slug": "serverkit-dns-server",
@@ -101,7 +105,9 @@
       "homepage": "https://github.com/jhd3197/serverkit-dns-server",
       "featured": false,
       "feature_score": 0,
-      "logo": "assets/serverkit-dns-server/logo.png"
+      "logo": "assets/serverkit-dns-server/logo.png",
+      "signature": "RUSisf2r8uF4ywe3uGID4sB1bZTMceurs140o+ECL+FtBNaeqGQwqXIN4jWoNj8tFK3HbhaH1jA5vdw6NIMgXyxvfkjxsJEhaAQ=",
+      "publisher_key_id": "serverkit-official"
     },
     {
       "slug": "serverkit-email",
@@ -197,7 +203,9 @@
       "homepage": "https://github.com/jhd3197/serverkit-gpu",
       "featured": true,
       "feature_score": 60,
-      "logo": "assets/serverkit-gpu/logo.png"
+      "logo": "assets/serverkit-gpu/logo.png",
+      "signature": "RUSisf2r8uF4y0UJPkgjRvsayCY69ztjs1HLGyUKjrkdEsPLooabPjx/RcJLqijh7KGAeZMBbac8EMnLAULLD91UQ2nXNe5XLwk=",
+      "publisher_key_id": "serverkit-official"
     },
     {
       "slug": "serverkit-mail",
@@ -222,7 +230,9 @@
       "homepage": "https://github.com/jhd3197/serverkit-mail",
       "featured": false,
       "feature_score": 0,
-      "logo": "assets/serverkit-mail/logo.png"
+      "logo": "assets/serverkit-mail/logo.png",
+      "signature": "RUSisf2r8uF4yyKC6Brnz9c/v28vlHtJlT3RV9JKMFJngHIln4/bvhMoipg5CErprtkBufKidxrbseW/6S+oQ+Zo7aEZusnx1AY=",
+      "publisher_key_id": "serverkit-official"
     },
     {
       "slug": "serverkit-remote-access",
@@ -280,7 +290,9 @@
       "homepage": "https://github.com/jhd3197/serverkit-wordpress",
       "featured": true,
       "feature_score": 80,
-      "logo": "assets/serverkit-wordpress/logo.png"
+      "logo": "assets/serverkit-wordpress/logo.png",
+      "signature": "RUSisf2r8uF4y6cH1kZAl4Xvfjn+QxpOjtIA9wnWCzMS1RIbXwjsQnpvmf+uGQY8rI/gKTYWf/d95u2NGRRF/JyKVxuc0pGGVQc=",
+      "publisher_key_id": "serverkit-official"
     },
     {
       "slug": "serverkit-k8s",
@@ -304,7 +316,9 @@
       "homepage": "https://github.com/jhd3197/serverkit-k8s",
       "featured": false,
       "feature_score": 0,
-      "logo": "assets/serverkit-k8s/logo.png"
+      "logo": "assets/serverkit-k8s/logo.png",
+      "signature": "RUSisf2r8uF4yytyUvgBJdz+138Xw41JuZU7UWMRzTAwbrNI/YMeNV5c8qbg3i5MnTqo2qqzLnQnQHD0ZfEkv8j3vnV6ERG0dQc=",
+      "publisher_key_id": "serverkit-official"
     },
     {
       "slug": "serverkit-tramo",
@@ -329,7 +343,9 @@
       "homepage": "https://github.com/jhd3197/serverkit-tramo",
       "featured": true,
       "feature_score": 90,
-      "logo": "assets/serverkit-tramo/logo.png"
+      "logo": "assets/serverkit-tramo/logo.png",
+      "signature": "RUSisf2r8uF4y8X23TTjcunsp/YgbaKCaFg5rBKfE+Ww2ObDxjJbLGwxZhG0JhfHiXDPWd/mnKuYoLiUMbXnky0UUfajORlujg0=",
+      "publisher_key_id": "serverkit-official"
     },
     {
       "slug": "serverkit-analytics",
@@ -353,7 +369,9 @@
       "homepage": "https://github.com/jhd3197/serverkit-analytics",
       "featured": true,
       "feature_score": 88,
-      "logo": "assets/serverkit-analytics/logo.png"
+      "logo": "assets/serverkit-analytics/logo.png",
+      "signature": "RUSisf2r8uF4y/IqEG8/YJsgSYZr6KoaoQ+qRjvufpOo/J35izl1RxtpyG6F2CaInK1FIk8Kc9VTmuZ2gyVzsgk3r19YwGyRDwg=",
+      "publisher_key_id": "serverkit-official"
     },
     {
       "slug": "serverkit-faro",
@@ -373,7 +391,9 @@
       "homepage": "https://github.com/jhd3197/serverkit-faro",
       "featured": true,
       "feature_score": 100,
-      "logo": "assets/serverkit-faro/logo.png"
+      "logo": "assets/serverkit-faro/logo.png",
+      "signature": "RUSisf2r8uF4y0SdTvSDNBJHsTbpWumcmG7a9B7SoOsmhOOL3GhhExZJ1jdQpp2AwrPBtnTvwSb3f8C1f+J9OpG+2SspaHjSqA8=",
+      "publisher_key_id": "serverkit-official"
     },
     {
       "slug": "serverkit-redis",
@@ -389,13 +409,13 @@
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
       "source": "https://github.com/jhd3197/serverkit-redis/releases/download/v1.0.1/serverkit-redis-1.0.1.zip",
-      "sha256": "b1e8f6bfb4a15e5b86d40fd2e780f0b3ccd1bc38946ffdcf720e5810966f6b1c",
+      "sha256": "c4c369332b37fb60b7c3a60841437b7791ddc55b089100ec492f4a8487baa2bd",
       "review": {
         "reviewer": "jhd3197",
-        "date": "2026-07-23",
-        "sha256": "b1e8f6bfb4a15e5b86d40fd2e780f0b3ccd1bc38946ffdcf720e5810966f6b1c",
-        "commit": "6d709f2",
-        "notes": "Full-file audit of v1.0.0 plus the fork's hardening diff. Fixed before stamping: admin-only RBAC on all routes (was any authenticated user), first-token command blocklist closing the CONFIG SET/EVAL/MODULE/REPLICAOF path to host code execution, slowlog input validation, and a working frontend bundle. Fixes offered upstream as farhanturu/serverkit-redis#1."
+        "date": "2026-08-29",
+        "sha256": "c4c369332b37fb60b7c3a60841437b7791ddc55b089100ec492f4a8487baa2bd",
+        "commit": "3b9774d",
+        "notes": "Full-file audit of v1.0.0 plus the fork's hardening diff. Fixed before stamping: admin-only RBAC on all routes (was any authenticated user), first-token command blocklist closing the CONFIG SET/EVAL/MODULE/REPLICAOF path to host code execution, slowlog input validation, and a working frontend bundle. Fixes offered upstream as farhanturu/serverkit-redis#1. Re-pinned 2026-08-29: the v1.0.1 asset was rebuilt on 2026-08-20 with the fork's own i18n commits (d326b9e, 3b9774d) on top of the reviewed 6d709f2; no third-party code changed."
       },
       "repo": "https://github.com/jhd3197/serverkit-redis",
       "homepage": "https://github.com/jhd3197/serverkit-redis",
@@ -423,7 +443,9 @@
       "homepage": "https://github.com/jhd3197/serverkit-minecraft",
       "featured": true,
       "feature_score": 85,
-      "logo": "assets/serverkit-minecraft/logo.png"
+      "logo": "assets/serverkit-minecraft/logo.png",
+      "signature": "RUSisf2r8uF4y23+Ewf4eCC+2AToGfHNAUeu4+nTgnCK0J4saaHOBShtW2NNXZ/XaQE340LNNNLTEhCMdHax+rWzNuW5F2yf/Ag=",
+      "publisher_key_id": "serverkit-official"
     }
   ]
 }
