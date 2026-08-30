@@ -108,6 +108,48 @@ LOGOS = {
         '<rect x="27" y="31" width="12" height="8" rx="2" fill="none" stroke="{a}" stroke-width="2"/>'
         '<path d="M24 17v5m0 0-9 4v5m9-9 9 4v5" fill="none" stroke="{a}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
     ),
+    'serverkit-localkit': (
+        'LocalKit Bridge', '#e879f9',
+        '<rect x="13" y="11" width="22" height="15" rx="2" fill="none" stroke="{a}" stroke-width="2"/>'
+        '<path d="M20 22v-6m0 0-2.5 2.5M20 16l2.5 2.5" fill="none" stroke="{a}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+        '<path d="M28 16v6m0 0-2.5-2.5M28 22l2.5-2.5" fill="none" stroke="{a}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+        '<path d="M10 31h28" stroke="{a}" stroke-width="2" stroke-linecap="round"/>'
+        '<path d="M15 37h18" stroke="{a}" stroke-width="2" stroke-linecap="round" opacity="0.55"/>'
+    ),
+    'serverkit-fail2ban': (
+        'Fail2ban', '#fb7185',
+        '<path d="M24 8l12 4.5V22c0 8-5.4 13.8-12 16-6.6-2.2-12-8-12-16v-9.5z" fill="none" stroke="{a}" stroke-width="2" stroke-linejoin="round"/>'
+        '<path d="M19 17v12" stroke="{a}" stroke-width="2" stroke-linecap="round"/>'
+        '<path d="M24 17v14" stroke="{a}" stroke-width="2" stroke-linecap="round"/>'
+        '<path d="M29 17v12" stroke="{a}" stroke-width="2" stroke-linecap="round"/>'
+    ),
+    'serverkit-clamav': (
+        'Malware Scanner', '#c084fc',
+        '<circle cx="21" cy="21" r="10" fill="none" stroke="{a}" stroke-width="2"/>'
+        '<path d="M28.5 28.5 38 38" stroke="{a}" stroke-width="2" stroke-linecap="round"/>'
+        '<circle cx="21" cy="21" r="3" fill="{a}"/>'
+        '<path d="M16.5 16.5l2 2m8-2-2 2m-8 7 2-2m8 2-2-2" stroke="{a}" stroke-width="2" stroke-linecap="round"/>'
+    ),
+    'serverkit-lynis': (
+        'Lynis Audit', '#facc15',
+        '<rect x="14" y="12" width="20" height="27" rx="2" fill="none" stroke="{a}" stroke-width="2"/>'
+        '<path d="M20 12v-2.5h8V12" fill="none" stroke="{a}" stroke-width="2" stroke-linejoin="round"/>'
+        '<path d="M19 20h10" stroke="{a}" stroke-width="2" stroke-linecap="round" opacity="0.55"/>'
+        '<path d="M18.5 29l3.5 3.5 7.5-7.5" fill="none" stroke="{a}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+    ),
+    'serverkit-auto-updates': (
+        'Auto Updates', '#5eead4',
+        '<path d="M13 21a11.5 11.5 0 0 1 19.7-5.7L36 18.5" fill="none" stroke="{a}" stroke-width="2" stroke-linecap="round"/>'
+        '<path d="M36 11.5v7h-7" fill="none" stroke="{a}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+        '<path d="M35 27a11.5 11.5 0 0 1-19.7 5.7L12 29.5" fill="none" stroke="{a}" stroke-width="2" stroke-linecap="round"/>'
+        '<path d="M12 36.5v-7h7" fill="none" stroke="{a}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+    ),
+    'serverkit-image-scan': (
+        'Image Scan', '#7dd3fc',
+        '<path d="M9 15v-4a2 2 0 0 1 2-2h4M39 15v-4a2 2 0 0 0-2-2h-4M9 33v4a2 2 0 0 0 2 2h4M39 33v4a2 2 0 0 1-2 2h-4" fill="none" stroke="{a}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+        '<path d="M24 16l7 3.5v9L24 32l-7-3.5v-9z" fill="none" stroke="{a}" stroke-width="2" stroke-linejoin="round"/>'
+        '<path d="M17 19.5l7 3.5 7-3.5M24 23v9" fill="none" stroke="{a}" stroke-width="2" stroke-linejoin="round"/>'
+    ),
 }
 
 TEMPLATE = (
