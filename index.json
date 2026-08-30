@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "updated": "2026-08-28",
+  "updated": "2026-08-30",
   "extensions": [
     {
       "slug": "serverkit-gui",
@@ -49,16 +49,21 @@
       "category": "integration",
       "author": "ServerKit",
       "first_party": true,
-      "bundled": true,
+      "bundled": false,
       "permissions": [
         "network"
       ],
-      "min_panel_version": "1.7.0",
+      "min_panel_version": "1.9.11",
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit",
+      "source": "https://github.com/jhd3197/serverkit-cloudflare-ops/releases/download/v1.0.0/serverkit-cloudflare-ops-1.0.0.zip",
+      "sha256": "a4d581065f83ce0537662758c00fdb159ba894dff2a2b88b94379d8e63a01eb4",
+      "repo": "https://github.com/jhd3197/serverkit-cloudflare-ops",
+      "homepage": "https://github.com/jhd3197/serverkit-cloudflare-ops",
       "featured": true,
       "feature_score": 70,
-      "logo": "assets/serverkit-cloudflare-ops/logo.png"
+      "logo": "assets/serverkit-cloudflare-ops/logo.png",
+      "signature": "RUSisf2r8uF4yxQ+dtc+vsYxRKV8KuOAh3wPM1wHz49aJvrn1/yUTB37wE/pOdO2ZdF3yMdK9mzwOKNYHjlkOXWTPAC2ed/0ZAA=",
+      "publisher_key_id": "serverkit-official"
     },
     {
       "slug": "serverkit-crowdsec",
@@ -117,16 +122,23 @@
       "category": "integration",
       "author": "ServerKit",
       "first_party": true,
-      "bundled": true,
+      "bundled": false,
       "permissions": [
         "shell",
         "filesystem",
         "network"
       ],
-      "min_panel_version": "1.7.0",
+      "min_panel_version": "1.9.11",
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit",
-      "logo": "assets/serverkit-email/logo.png"
+      "source": "https://github.com/jhd3197/serverkit-email/releases/download/v1.0.0/serverkit-email-1.0.0.zip",
+      "sha256": "29810dc33b4de27b0da18f52a218d7f0a0a8d2086f88ec5c24b62cef4e480c49",
+      "repo": "https://github.com/jhd3197/serverkit-email",
+      "homepage": "https://github.com/jhd3197/serverkit-email",
+      "featured": false,
+      "feature_score": 0,
+      "logo": "assets/serverkit-email/logo.png",
+      "signature": "RUSisf2r8uF4y54jUCQK/ts2mZEBCsMCok4bkphrgdMlIePCGx0olBr2Sr5MOuu3uM2WKPjnQx/O7Z7ucHwipw5RJSHEtaDe5wc=",
+      "publisher_key_id": "serverkit-official"
     },
     {
       "slug": "serverkit-ftp",
@@ -150,29 +162,37 @@
       "slug": "serverkit-git",
       "display_name": "Git Server",
       "description": "Self-hosted Git server (Gitea) exposed through the ServerKit extension system.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "category": "deployment",
       "author": "ServerKit",
       "first_party": true,
-      "bundled": true,
+      "bundled": false,
       "permissions": [
         "docker",
-        "filesystem"
+        "filesystem",
+        "shell"
       ],
-      "min_panel_version": null,
+      "min_panel_version": "1.9.11",
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit",
-      "logo": "assets/serverkit-git/logo.png"
+      "source": "https://github.com/jhd3197/serverkit-git/releases/download/v1.1.0/serverkit-git-1.1.0.zip",
+      "sha256": "2e32a6f10fc352e4e06f09949cb4c2d2767e9b44480c4860ce93990f917cfca1",
+      "repo": "https://github.com/jhd3197/serverkit-git",
+      "homepage": "https://github.com/jhd3197/serverkit-git",
+      "featured": false,
+      "feature_score": 0,
+      "logo": "assets/serverkit-git/logo.png",
+      "signature": "RUSisf2r8uF4y5lcGRISR/cqJi2QKGk95qPqU5RASfTCOVCgEbUsRvfM14CAgq1KftV+/H6ionorlL+14eYYQicVj3wxUhidUgk=",
+      "publisher_key_id": "serverkit-official"
     },
     {
       "slug": "serverkit-localkit",
       "display_name": "LocalKit Bridge",
-      "description": "API surface for the LocalKit desktop app: pair with an API key, list and create WordPress sites, and push or pull wp-content code and database dumps between local and server sites.",
+      "description": "API surface for the LocalKit desktop app: pair with an API key, list/create WordPress sites (API-key friendly), and push/pull wp-content code and database dumps between local and server sites.",
       "version": "0.2.0",
       "category": "integration",
       "author": "ServerKit",
       "first_party": true,
-      "bundled": true,
+      "bundled": false,
       "permissions": [
         "filesystem",
         "network",
@@ -181,7 +201,15 @@
       ],
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
-      "repo": "https://github.com/jhd3197/ServerKit"
+      "source": "https://github.com/jhd3197/serverkit-localkit/releases/download/v0.2.0/serverkit-localkit-0.2.0.zip",
+      "sha256": "26518755f2f594d8e887c1c455581904fd27b4bc0497f4b585c96a71d7aed926",
+      "repo": "https://github.com/jhd3197/serverkit-localkit",
+      "homepage": "https://github.com/jhd3197/serverkit-localkit",
+      "featured": false,
+      "feature_score": 0,
+      "logo": "assets/serverkit-localkit/logo.svg",
+      "signature": "RUSisf2r8uF4y+eBUg405g9Hecz5nqhmHOucZMwITBorbCBVaOtGe3Jt1ZpQEWa0n4jwXIz2rNtZRRlf38Yu91R10ZgVprDrUg8=",
+      "publisher_key_id": "serverkit-official"
     },
     {
       "slug": "serverkit-gpu",
@@ -445,6 +473,128 @@
       "feature_score": 85,
       "logo": "assets/serverkit-minecraft/logo.png",
       "signature": "RUSisf2r8uF4y23+Ewf4eCC+2AToGfHNAUeu4+nTgnCK0J4saaHOBShtW2NNXZ/XaQE340LNNNLTEhCMdHax+rWzNuW5F2yf/Ag=",
+      "publisher_key_id": "serverkit-official"
+    },
+    {
+      "slug": "serverkit-fail2ban",
+      "display_name": "Fail2ban",
+      "description": "Fail2ban brute-force protection for ServerKit: service status, jail overview, ban/unban, and one-click install. Managed jails written by the panel (per-site brute-force protection) keep working; this extension adds the management surface.",
+      "version": "1.0.0",
+      "category": "security",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": false,
+      "permissions": [
+        "shell"
+      ],
+      "min_panel_version": "1.9.11",
+      "max_panel_version": null,
+      "source": "https://github.com/jhd3197/serverkit-fail2ban/releases/download/v1.0.0/serverkit-fail2ban-1.0.0.zip",
+      "sha256": "7765e54e5bbc4c771ef05517b5fb3948f13a1ab9796eba3461dc197678ba76c0",
+      "repo": "https://github.com/jhd3197/serverkit-fail2ban",
+      "homepage": "https://github.com/jhd3197/serverkit-fail2ban",
+      "featured": true,
+      "feature_score": 40,
+      "logo": "assets/serverkit-fail2ban/logo.svg",
+      "signature": "RUSisf2r8uF4y05G4yTsy2PqqrIHcfCH+TZCaXRKNyiZ1UA0CubKjD9AqDRm7MTI8Fjdv8XY8TNpYUwCI8mFCZuHPWIZXxJWCAE=",
+      "publisher_key_id": "serverkit-official"
+    },
+    {
+      "slug": "serverkit-clamav",
+      "display_name": "Malware Scanner",
+      "description": "ClamAV + YARA malware scanning for ServerKit: quick/full/custom-path scans, job-backed app docroot scans with a curated web-shell rule pass, custom .yar rules, scan history, and a quarantine with restore. ClamAV installs on demand from the page; the YARA pass works everywhere via a pure-Python fallback.",
+      "version": "1.0.0",
+      "category": "security",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": false,
+      "permissions": [
+        "shell",
+        "filesystem"
+      ],
+      "min_panel_version": "1.9.11",
+      "max_panel_version": null,
+      "source": "https://github.com/jhd3197/serverkit-clamav/releases/download/v1.0.0/serverkit-clamav-1.0.0.zip",
+      "sha256": "188e85fd44ea904ff58bcf9d1075a0483f067ecc8eca30acb70f67d1d1ae7291",
+      "repo": "https://github.com/jhd3197/serverkit-clamav",
+      "homepage": "https://github.com/jhd3197/serverkit-clamav",
+      "featured": true,
+      "feature_score": 45,
+      "logo": "assets/serverkit-clamav/logo.svg",
+      "signature": "RUSisf2r8uF4y2lOKz/UK6Gn1hgpUifWoS6Zvt6F9o2PdvKxlLsTswvEtQ+Fvr2HsXB0Wdrb1IN+Kv0nhZU9gqQwrPK9XKE5EgE=",
+      "publisher_key_id": "serverkit-official"
+    },
+    {
+      "slug": "serverkit-lynis",
+      "display_name": "Vulnerability Scan",
+      "description": "Lynis host vulnerability scanning for the ServerKit security suite. Run scored Lynis audits of the host (hardening index, warnings, suggestions) as durable background jobs, with install-on-demand when Lynis is absent. Extracted from the panel's built-in Security surface; the tab reappears under /security once installed.",
+      "version": "1.0.0",
+      "category": "security",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": false,
+      "permissions": [
+        "shell"
+      ],
+      "min_panel_version": "1.9.11",
+      "max_panel_version": null,
+      "source": "https://github.com/jhd3197/serverkit-lynis/releases/download/v1.0.0/serverkit-lynis-1.0.0.zip",
+      "sha256": "a945fbd46c8deff135053f9a99134e6b015d948364e771ecde88d6e2123d0f60",
+      "repo": "https://github.com/jhd3197/serverkit-lynis",
+      "homepage": "https://github.com/jhd3197/serverkit-lynis",
+      "featured": false,
+      "feature_score": 0,
+      "logo": "assets/serverkit-lynis/logo.svg",
+      "signature": "RUSisf2r8uF4y34g4gZJSBhDDyLu3+3IY2hv7SbBrLx+bbXf4XUTnvuTANiogu5qz4WXt8ZORQLnboJ2qaPsiRylC65jGzNwqwg=",
+      "publisher_key_id": "serverkit-official"
+    },
+    {
+      "slug": "serverkit-auto-updates",
+      "display_name": "Auto Updates",
+      "description": "Automatic security updates for the host OS: install and manage unattended-upgrades (Debian/Ubuntu) or dnf-automatic (RHEL/Fedora) from the panel's Security surface, so known vulnerabilities are patched without manual intervention.",
+      "version": "1.0.0",
+      "category": "security",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": false,
+      "permissions": [
+        "shell"
+      ],
+      "min_panel_version": "1.9.11",
+      "max_panel_version": null,
+      "source": "https://github.com/jhd3197/serverkit-auto-updates/releases/download/v1.0.0/serverkit-auto-updates-1.0.0.zip",
+      "sha256": "0752bca4f89fec2b3a0f21dc1b5ca44344c62c802db0d74c84e01155a047483f",
+      "repo": "https://github.com/jhd3197/serverkit-auto-updates",
+      "homepage": "https://github.com/jhd3197/serverkit-auto-updates",
+      "featured": false,
+      "feature_score": 0,
+      "logo": "assets/serverkit-auto-updates/logo.svg",
+      "signature": "RUSisf2r8uF4y2lkgGzTIBzB4U5XsqCnagvfhPEwoEpTnjhqUUrRreavLimBAzmG6cXtd5bd6lUe/1WCPAVww+tEjsipJI440w4=",
+      "publisher_key_id": "serverkit-official"
+    },
+    {
+      "slug": "serverkit-image-scan",
+      "display_name": "Image Scanning",
+      "description": "Container image security for ServerKit apps: CVE scans of application Docker images with grype, SPDX SBOM generation with syft, and a deploy-gate endpoint that blocks releases whose latest scan exceeds the vulnerability threshold. Scanner binaries are downloaded on demand.",
+      "version": "1.0.0",
+      "category": "security",
+      "author": "ServerKit",
+      "first_party": true,
+      "bundled": false,
+      "permissions": [
+        "shell",
+        "docker"
+      ],
+      "min_panel_version": "1.9.11",
+      "max_panel_version": null,
+      "source": "https://github.com/jhd3197/serverkit-image-scan/releases/download/v1.0.0/serverkit-image-scan-1.0.0.zip",
+      "sha256": "b9c74e9e1d7abce9b5799fcd1b96f7ecb5b8624e385cb69a39e2d8bcf11979e9",
+      "repo": "https://github.com/jhd3197/serverkit-image-scan",
+      "homepage": "https://github.com/jhd3197/serverkit-image-scan",
+      "featured": false,
+      "feature_score": 0,
+      "logo": "assets/serverkit-image-scan/logo.svg",
+      "signature": "RUSisf2r8uF4y4+3tYKno5YiN4FFI7Q6EDgcSLJbY8ns2NU39qs40mPaG/V92tZI6nj8HPVQvoFuNYcqVvJJf00AUiu+gJACtg4=",
       "publisher_key_id": "serverkit-official"
     }
   ]
