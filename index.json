@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "updated": "2026-08-30",
+  "updated": "2026-09-08",
   "extensions": [
     {
       "slug": "serverkit-gui",
@@ -298,7 +298,7 @@
       "slug": "serverkit-wordpress",
       "display_name": "WordPress",
       "description": "The full WordPress suite: one-click site provisioning, a curated plugin library, environments and promote pipelines, update runs, security hardening, vulnerability scanning, analytics and reports. Offered during onboarding; uninstall it to slim the panel.",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "category": "integration",
       "author": "ServerKit",
       "first_party": true,
@@ -312,14 +312,14 @@
       ],
       "min_panel_version": "1.7.81",
       "max_panel_version": null,
-      "source": "https://github.com/jhd3197/serverkit-wordpress/releases/download/v1.0.1/serverkit-wordpress-1.0.1.zip",
-      "sha256": "2b7a9530925d4888e2a58ba0be8497d02e7ac6d31e6deec38806f311eaa179d5",
+      "source": "https://github.com/jhd3197/serverkit-wordpress/releases/download/v1.0.2/serverkit-wordpress-1.0.2.zip",
+      "sha256": "a0affcd7d014cde41269f41cdc5058e7b0c8fa27efa687d844f5d64201b7d872",
       "repo": "https://github.com/jhd3197/serverkit-wordpress",
       "homepage": "https://github.com/jhd3197/serverkit-wordpress",
       "featured": true,
       "feature_score": 80,
       "logo": "assets/serverkit-wordpress/logo.png",
-      "signature": "RUSisf2r8uF4y6cH1kZAl4Xvfjn+QxpOjtIA9wnWCzMS1RIbXwjsQnpvmf+uGQY8rI/gKTYWf/d95u2NGRRF/JyKVxuc0pGGVQc=",
+      "signature": "RUSisf2r8uF4y8MM6PT19vklhMj+hZe4tdIHg9tqRJZAYgA96APK5kUEGCwbgUANqbMQVwyX1m0GPA0EEqbzsWypgzb1hIGtBws=",
       "publisher_key_id": "serverkit-official"
     },
     {
@@ -379,7 +379,7 @@
       "slug": "serverkit-analytics",
       "display_name": "Analytics",
       "description": "Privacy-first, self-hosted web analytics for the sites this panel manages. A lightweight (<4 KB) cookieless JavaScript tracker and optional server-log ingestion feed a persistent time series stored on your own server, and nothing leaves the box. Visitor identity is a daily-rotating salted hash of IP+user-agent (raw IPs are never stored), DoNotTrack is honored, and there are no cookies, fingerprinting, or third-party calls. A real dashboard inside the panel shows visitors, pageviews, top pages, referrers, devices, and a live realtime counter, with one-click wiring into managed WordPress and nginx-proxied apps.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "category": "monitoring",
       "author": "ServerKit",
       "first_party": true,
@@ -391,14 +391,14 @@
       ],
       "min_panel_version": "1.7.0",
       "max_panel_version": null,
-      "source": "https://github.com/jhd3197/serverkit-analytics/releases/download/v1.0.0/serverkit-analytics-1.0.0.zip",
-      "sha256": "54a7b6016884f888f36c707649f565b59dc9d9486f1ecaef39d0024aca407f99",
+      "source": "https://github.com/jhd3197/serverkit-analytics/releases/download/v1.0.1/serverkit-analytics-1.0.1.zip",
+      "sha256": "ad83db645b40407fc0b37f9f662c271c82ef25f22c2f71b2d473fd705c501c9d",
       "repo": "https://github.com/jhd3197/serverkit-analytics",
       "homepage": "https://github.com/jhd3197/serverkit-analytics",
       "featured": true,
       "feature_score": 88,
       "logo": "assets/serverkit-analytics/logo.png",
-      "signature": "RUSisf2r8uF4y/IqEG8/YJsgSYZr6KoaoQ+qRjvufpOo/J35izl1RxtpyG6F2CaInK1FIk8Kc9VTmuZ2gyVzsgk3r19YwGyRDwg=",
+      "signature": "RUSisf2r8uF4y9fjDRSk8KXxqsjvAdOdMH/Tztae1WLUS/Ov0+cbt2qCb3dCvzc0jqnuGU94ts7OKU0sp5+GZWw2vJt+713grwU=",
       "publisher_key_id": "serverkit-official"
     },
     {
