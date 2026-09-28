@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "updated": "2026-09-08",
+  "updated": "2026-09-28",
   "extensions": [
     {
       "slug": "serverkit-gui",
@@ -45,7 +45,7 @@
       "slug": "serverkit-cloudflare-ops",
       "display_name": "Cloudflare Zone Ops",
       "description": "Cloudflare zone operations on top of your existing Cloudflare DNS connection, covering zone settings, cache purge, WAF, Workers, Tunnels, and R2/KV/D1 storage. DNS records and the connection itself stay in the core Domains surface; this adds the per-zone control panel reached from a Cloudflare-managed domain.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "category": "integration",
       "author": "ServerKit",
       "first_party": true,
@@ -55,14 +55,14 @@
       ],
       "min_panel_version": "1.9.11",
       "max_panel_version": null,
-      "source": "https://github.com/jhd3197/serverkit-cloudflare-ops/releases/download/v1.0.0/serverkit-cloudflare-ops-1.0.0.zip",
-      "sha256": "a4d581065f83ce0537662758c00fdb159ba894dff2a2b88b94379d8e63a01eb4",
+      "source": "https://github.com/jhd3197/serverkit-cloudflare-ops/releases/download/v1.1.0/serverkit-cloudflare-ops-1.1.0.zip",
+      "sha256": "f3c1061879b03936ea31de80b11bcc626218c05d01c63d8a3ef3e4c667d8ddfb",
       "repo": "https://github.com/jhd3197/serverkit-cloudflare-ops",
       "homepage": "https://github.com/jhd3197/serverkit-cloudflare-ops",
       "featured": true,
       "feature_score": 70,
       "logo": "assets/serverkit-cloudflare-ops/logo.png",
-      "signature": "RUSisf2r8uF4yxQ+dtc+vsYxRKV8KuOAh3wPM1wHz49aJvrn1/yUTB37wE/pOdO2ZdF3yMdK9mzwOKNYHjlkOXWTPAC2ed/0ZAA=",
+      "signature": "RUSisf2r8uF4y9kVWx7SCQofixJk7weLkzhHao3WXfa/yMim0wtCva4UDjVSqVTJ6Qqk7qQD390a0fU3LIJpuTylwvYhv5D8rAc=",
       "publisher_key_id": "serverkit-official"
     },
     {
