@@ -150,6 +150,14 @@ LOGOS = {
         '<path d="M24 16l7 3.5v9L24 32l-7-3.5v-9z" fill="none" stroke="{a}" stroke-width="2" stroke-linejoin="round"/>'
         '<path d="M17 19.5l7 3.5 7-3.5M24 23v9" fill="none" stroke="{a}" stroke-width="2" stroke-linejoin="round"/>'
     ),
+    # The extension's own nav glyph (a sail), scaled into the safe zone.
+    'serverkit-vela': (
+        'Vela', '#93c5fd',
+        '<path d="M24 9v28" fill="none" stroke="{a}" stroke-width="2" stroke-linecap="round"/>'
+        '<path d="M24 9c8 5.5 12.5 13.5 12.5 23H24" fill="none" stroke="{a}" stroke-width="2" stroke-linejoin="round"/>'
+        '<path d="M24 18.5c-5.5 3.5-9 8-9 13.5h9" fill="none" stroke="{a}" stroke-width="2" stroke-linejoin="round"/>'
+        '<path d="M11 38h26" fill="none" stroke="{a}" stroke-width="2" stroke-linecap="round"/>'
+    ),
 }
 
 TEMPLATE = (
