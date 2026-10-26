@@ -26,7 +26,7 @@ release.
 | [CrowdSec](https://github.com/jhd3197/serverkit-crowdsec) | security | Installable | CrowdSec engine integration: decisions, alerts, ban/unban, and allowlists via `cscli`. |
 | [DNS Server](https://github.com/jhd3197/serverkit-dns-server) | networking | Installable | Authoritative DNS via PowerDNS in Docker: zones, records, DNSSEC, delegation checks. |
 | [Email Server](https://github.com/jhd3197/ServerKit) | integration | Bundled | Postfix/Dovecot mail stack with DKIM/SPF/DMARC, SpamAssassin, and Roundcube webmail. |
-| [Faro](https://github.com/jhd3197/serverkit-faro) | utility | Installable | One-click Open in Faro: `faro://` SFTP deep links from Services, Domains, and WordPress. |
+| [Faro](https://github.com/jhd3197/serverkit-faro) | utility | Installable | Open in Faro deep links, plus time-boxed SSH access for people and their devices, installed through the agent. |
 | [FTP Server](https://github.com/jhd3197/ServerKit) | utility | Bundled | FTP server management (vsftpd/proftpd): users, config, and logs (Files tab). |
 | [Git Server](https://github.com/jhd3197/ServerKit) | deployment | Bundled | Self-hosted Git server (Gitea) exposed through the extension system. |
 | [GPU Monitor](https://github.com/jhd3197/serverkit-gpu) | monitoring | Installable | Live NVIDIA GPU metrics: utilization, memory, temperature, power, and fan. |

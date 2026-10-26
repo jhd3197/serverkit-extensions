@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "updated": "2026-10-23",
+  "updated": "2026-10-26",
   "extensions": [
     {
       "slug": "serverkit-gui",
@@ -404,23 +404,27 @@
     {
       "slug": "serverkit-faro",
       "display_name": "Faro",
-      "description": "One-click Open in Faro. Adds a Connect with Faro button to Services, Domains, and WordPress sites that opens the Faro desktop client prefilled to SFTP into that site's web root, via faro:// deep links. No credentials ever leave the panel: a link only prefills Faro's connection editor for the user to review and connect.",
-      "version": "1.0.2",
+      "description": "Open in Faro and SSH access sharing. Connect with Faro buttons open the Faro desktop client prefilled for SFTP via faro:// links, and the Access pages let you give people time-boxed, revocable key-based access to managed servers: one-time links, or members whose devices you add and approve. Keys are installed and removed through the agent, including on bridge hosts.",
+      "version": "1.2.0",
       "category": "utility",
       "author": "Juan Denis",
       "first_party": true,
       "bundled": false,
-      "permissions": [],
-      "min_panel_version": "1.7.0",
+      "permissions": [
+        "db",
+        "agent.command:ssh:keys:add",
+        "agent.command:ssh:keys:remove"
+      ],
+      "min_panel_version": "1.11.17",
       "max_panel_version": null,
-      "source": "https://github.com/jhd3197/serverkit-faro/releases/download/v1.0.2/serverkit-faro-1.0.2.zip",
-      "sha256": "eba4a111bf7642fd4f72fbb491f78609f7663199d650950c21c88b706317f3b3",
+      "source": "https://github.com/jhd3197/serverkit-faro/releases/download/v1.2.0/serverkit-faro-1.2.0.zip",
+      "sha256": "b5bd467ecd86ccde6845b5e124590e12579d005f74ef92829a38afaefd1da196",
       "repo": "https://github.com/jhd3197/serverkit-faro",
       "homepage": "https://github.com/jhd3197/serverkit-faro",
       "featured": true,
       "feature_score": 100,
       "logo": "assets/serverkit-faro/logo.png",
-      "signature": "RUSisf2r8uF4y0SdTvSDNBJHsTbpWumcmG7a9B7SoOsmhOOL3GhhExZJ1jdQpp2AwrPBtnTvwSb3f8C1f+J9OpG+2SspaHjSqA8=",
+      "signature": "RUSisf2r8uF4y63Lt0ub3cpRFaQvADy4FHpguNWqyjZZzVDISkdA1B3fq6JNP+rbNyP4KVOIv08ahrJbhcx1Rffct9rRLmjD2gQ=",
       "publisher_key_id": "serverkit-official"
     },
     {
